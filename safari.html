@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safari - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="app-header" style="background: #1d1d1f; color: white; border-bottom: 1px solid #333;">
+        <button class="back-button" id="app-back-btn" style="color: white;">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="url-bar" style="flex: 1; background: #333; border-radius: 8px; padding: 8px 15px; margin: 0 10px; display: flex; align-items: center;">
+            <i class="fas fa-lock" style="color: #34C759; margin-right: 8px; font-size: 0.9rem;"></i>
+            <span style="color: white; font-size: 0.9rem;">https://www.apple.com</span>
+        </div>
+        
+        <button class="app-header-btn" style="color: white;">
+            <i class="fas fa-share"></i>
+        </button>
+    </div>
+    
+    <div class="app-content" style="background: white;">
+        <div class="browser-content">
+            <!-- Browser controls -->
+            <div class="browser-controls" style="display: flex; justify-content: space-around; padding: 10px; border-bottom: 1px solid #e5e5ea;">
+                <button class="browser-btn">
+                    <i class="fas fa-arrow-left" style="color: #8e8e93;"></i>
+                </button>
+                <button class="browser-btn">
+                    <i class="fas fa-arrow-right" style="color: #8e8e93;"></i>
+                </button>
+                <button class="browser-btn">
+                    <i class="fas fa-share-square" style="color: #007AFF;"></i>
+                </button>
+                <button class="browser-btn">
+                    <i class="fas fa-book" style="color: #FF9500;"></i>
+                </button>
+                <button class="browser-btn">
+                    <i class="fas fa-th" style="color: #8e8e93;"></i>
+                </button>
+            </div>
+            
+            <!-- Web content -->
+            <div class="webpage" style="padding: 20px;">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div style="font-size: 2rem; color: #1d1d1f; margin-bottom: 10px;">Apple</div>
+                    <div style="color: #8e8e93; margin-bottom: 20px;">Welcome to Apple.com</div>
+                    <div style="color: #34C759; font-weight: 600; margin-bottom: 20px;">
+                        <i class="fas fa-lock"></i> Secure Connection
+                    </div>
+                </div>
+                
+                <div class="featured-products">
+                    <h3 style="color: #1d1d1f; margin-bottom: 15px;">Featured Products</h3>
+                    
+                    <div class="product-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                        <div class="product-card" style="background: #f2f2f7; border-radius: 12px; padding: 15px; text-align: center;">
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 12px; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: center; color: white;">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">iPhone 15</div>
+                            <div style="font-size: 0.8rem; color: #8e8e93;">New camera system</div>
+                        </div>
+                        
+                        <div class="product-card" style="background: #f2f2f7; border-radius: 12px; padding: 15px; text-align: center;">
+                            <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); width: 60px; height: 60px; border-radius: 12px; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: center; color: white;">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">MacBook Air</div>
+                            <div style="font-size: 0.8rem; color: #8e8e93;">Powerful M3 chip</div>
+                        </div>
+                        
+                        <div class="product-card" style="background: #f2f2f7; border-radius: 12px; padding: 15px; text-align: center;">
+                            <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); width: 60px; height: 60px; border-radius: 12px; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: center; color: white;">
+                                <i class="fas fa-watch"></i>
+                            </div>
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">Apple Watch</div>
+                            <div style="font-size: 0.8rem; color: #8e8e93;">Series 9</div>
+                        </div>
+                        
+                        <div class="product-card" style="background: #f2f2f7; border-radius: 12px; padding: 15px; text-align: center;">
+                            <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); width: 60px; height: 60px; border-radius: 12px; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: center; color: white;">
+                                <i class="fas fa-headphones"></i>
+                            </div>
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">AirPods</div>
+                            <div style="font-size: 0.8rem; color: #8e8e93;">Pro (2nd gen)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-links" style="margin-top: 30px;">
+                    <h3 style="color: #1d1d1f; margin-bottom: 15px;">Quick Links</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="#" class="quick-link" style="padding: 12px; background: #f2f2f7; border-radius: 10px; text-decoration: none; color: #007AFF; display: flex; align-items: center; justify-content: space-between;">
+                            <span>Apple Store</span>
+                            <i class="fas fa-chevron-right" style="color: #8e8e93;"></i>
+                        </a>
+                        <a href="#" class="quick-link" style="padding: 12px; background: #f2f2f7; border-radius: 10px; text-decoration: none; color: #007AFF; display: flex; align-items: center; justify-content: space-between;">
+                            <span>Support</span>
+                            <i class="fas fa-chevron-right" style="color: #8e8e93;"></i>
+                        </a>
+                        <a href="#" class="quick-link" style="padding: 12px; background: #f2f2f7; border-radius: 10px; text-decoration: none; color: #007AFF; display: flex; align-items: center; justify-content: space-between;">
+                            <span>iOS 17</span>
+                            <i class="fas fa-chevron-right" style="color: #8e8e93;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const browserBtns = document.querySelectorAll('.browser-btn');
+            const quickLinks = document.querySelectorAll('.quick-link');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            // Browser buttons
+            browserBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const icon = this.querySelector('i').className;
+                    
+                    if (icon.includes('arrow-left')) {
+                        alert('Go back');
+                    } else if (icon.includes('arrow-right')) {
+                        alert('Go forward');
+                    } else if (icon.includes('share-square')) {
+                        alert('Share this page');
+                    } else if (icon.includes('book')) {
+                        alert('Show bookmarks');
+                    } else if (icon.includes('th')) {
+                        alert('Show tabs');
+                    }
+                });
+            });
+            
+            // Quick links
+            quickLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const linkText = this.querySelector('span').textContent;
+                    alert(`Opening ${linkText}`);
+                });
+            });
+            
+            // Product cards
+            productCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const productName = this.querySelector('div:nth-child(2)').textContent;
+                    alert(`View details for ${productName}`);
+                });
+            });
+            
+            // Back button functionality
+            document.getElementById('app-back-btn').addEventListener('click', function() {
+                window.parent.postMessage({ action: 'goHome' }, '*');
+            });
+        });
+    </script>
+</body>
+</html>

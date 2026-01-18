@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="app-header">
+        <button class="back-button" id="app-back-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h2 class="app-title">Weather</h2>
+        <button class="app-header-btn">
+            <i class="fas fa-list"></i>
+        </button>
+    </div>
+    
+    <div class="app-content">
+        <div class="weather-container" style="background: linear-gradient(180deg, #5AC8FA 0%, #007AFF 100%); color: white; min-height: 100%;">
+            <div class="current-weather" style="padding: 30px 20px; text-align: center;">
+                <div style="font-size: 1.2rem; margin-bottom: 10px; opacity: 0.9;">Cupertino, CA</div>
+                <div style="font-size: 4rem; font-weight: 200; margin-bottom: 10px;">72°</div>
+                <div style="font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9;">Sunny</div>
+                <div style="display: flex; justify-content: center; gap: 20px; opacity: 0.9;">
+                    <div>H: 78°</div>
+                    <div>L: 64°</div>
+                </div>
+            </div>
+            
+            <div class="hourly-forecast" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); padding: 20px; border-radius: 20px; margin: 0 20px;">
+                <h3 style="margin-bottom: 15px; font-weight: 500;">Hourly Forecast</h3>
+                <div class="hourly-items" style="display: flex; overflow-x: auto; gap: 20px; padding-bottom: 10px;">
+                    <div class="hourly-item" style="text-align: center; min-width: 60px;">
+                        <div style="font-size: 0.9rem; opacity: 0.8;">Now</div>
+                        <div style="font-size: 1.5rem; margin: 5px 0;"><i class="fas fa-sun"></i></div>
+                        <div style="font-size: 1.2rem; font-weight: 500;">72°</div>
+                    </div>
+                    
+                    <div class="hourly-item" style="text-align: center; min-width: 60px;">
+                        <div style="font-size: 0.9rem; opacity: 0.8;">1 PM</div>
+                        <div style="font-size: 1.5rem; margin: 5px 0;"><i class="fas fa-sun"></i></div>
+                        <div style="font-size: 1.2rem; font-weight: 500;">75°</div>
+                    </div>
+                    
+                    <div class="hourly-item" style="text-align: center; min-width: 60px;">
+                        <div style="font-size: 0.9rem; opacity: 0.8;">2 PM</div>
+                        <div style="font-size: 1.5rem; margin: 5px 0;"><i class="fas fa-cloud-sun"></i></div>
+                        <div style="font-size: 1.2rem; font-weight: 500;">76°</div>
+                    </div>
+                    
+                    <div class="hourly-item" style="text-align: center; min-width: 60px;">
+                        <div style="font-size: 0.9rem; opacity: 0.8;">3 PM</div>
+                        <div style="font-size: 1.5rem; margin: 5px 0;"><i class="fas fa-cloud-sun"></i></div>
+                        <div style="font-size: 1.2rem; font-weight: 500;">77°</div>
+                    </div>
+                    
+                    <div class="hourly-item" style="text-align: center; min-width: 60px;">
+                        <div style="font-size: 0.9rem; opacity: 0.8;">4 PM</div>
+                        <div style="font-size: 1.5rem; margin: 5px 0;"><i class="fas fa-cloud"></i></div>
+                        <div style="font-size: 1.2rem; font-weight: 500;">76°</div>
+                    </div>
+                    
+                    <div class="hourly-item" style="text-align: center; min-width: 60px;">
+                        <div style="font-size: 0.9rem; opacity: 0.8;">5 PM</div>
+                        <div style="font-size: 1.5rem; margin: 5px 0;"><i class="fas fa-cloud"></i></div>
+                        <div style="font-size: 1.2rem; font-weight: 500;">74°</div>
+                    </div>
+                    
+                    <div class="hourly-item" style="text-align: center; min-width: 60px;">
+                        <div style="font-size: 0.9rem; opacity: 0.8;">6 PM</div>
+                        <div style="font-size: 1.5rem; margin: 5px 0;"><i class="fas fa-cloud"></i></div>
+                        <div style="font-size: 1.2rem; font-weight: 500;">72°</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="weekly-forecast" style="padding: 20px; margin-top: 20px;">
+                <h3 style="margin-bottom: 15px; font-weight: 500; color: white;">10-Day Forecast</h3>
+                <div class="daily-items" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div class="daily-item" style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+                        <div style="width: 100px; font-weight: 500;">Today</div>
+                        <div style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.8);">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div style="display: flex; gap: 15px;">
+                            <div style="font-weight: 500;">72°</div>
+                            <div style="color: rgba(255, 255, 255, 0.6);">64°</div>
+                        </div>
+                    </div>
+                    
+                    <div class="daily-item" style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+                        <div style="width: 100px; font-weight: 500;">Tue</div>
+                        <div style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.8);">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div style="display: flex; gap: 15px;">
+                            <div style="font-weight: 500;">74°</div>
+                            <div style="color: rgba(255, 255, 255, 0.6);">65°</div>
+                        </div>
+                    </div>
+                    
+                    <div class="daily-item" style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+                        <div style="width: 100px; font-weight: 500;">Wed</div>
+                        <div style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.8);">
+                            <i class="fas fa-cloud-rain"></i>
+                        </div>
+                        <div style="display: flex; gap: 15px;">
+                            <div style="font-weight: 500;">68°</div>
+                            <div style="color: rgba(255, 255, 255, 0.6);">62°</div>
+                        </div>
+                    </div>
+                    
+                    <div class="daily-item" style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+                        <div style="width: 100px; font-weight: 500;">Thu</div>
+                        <div style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.8);">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div style="display: flex; gap: 15px;">
+                            <div style="font-weight: 500;">70°</div>
+                            <div style="color: rgba(255, 255, 255, 0.6);">63°</div>
+                        </div>
+                    </div>
+                    
+                    <div class="daily-item" style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+                        <div style="width: 100px; font-weight: 500;">Fri</div>
+                        <div style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.8);">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div style="display: flex; gap: 15px;">
+                            <div style="font-weight: 500;">75°</div>
+                            <div style="color: rgba(255, 255, 255, 0.6);">66°</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="weather-details" style="padding: 20px; margin-top: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 20px; margin: 20px;">
+                <h3 style="margin-bottom: 15px; font-weight: 500; color: white;">Weather Details</h3>
+                <div class="detail-items" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                    <div class="detail-item" style="background: rgba(255, 255, 255, 0.15); padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 5px;">Feels Like</div>
+                        <div style="font-size: 1.3rem; font-weight: 500;">74°</div>
+                    </div>
+                    
+                    <div class="detail-item" style="background: rgba(255, 255, 255, 0.15); padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 5px;">Humidity</div>
+                        <div style="font-size: 1.3rem; font-weight: 500;">45%</div>
+                    </div>
+                    
+                    <div class="detail-item" style="background: rgba(255, 255, 255, 0.15); padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 5px;">Wind</div>
+                        <div style="font-size: 1.3rem; font-weight: 500;">8 mph</div>
+                    </div>
+                    
+                    <div class="detail-item" style="background: rgba(255, 255, 255, 0.15); padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 5px;">UV Index</div>
+                        <div style="font-size: 1.3rem; font-weight: 500;">6</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update weather data periodically
+            function updateWeatherData() {
+                // Simulate changing temperature throughout the day
+                const currentTemp = document.querySelector('.current-weather div:nth-child(2)');
+                const temps = ['72°', '73°', '74°', '75°', '74°', '73°'];
+                const randomTemp = temps[Math.floor(Math.random() * temps.length)];
+                currentTemp.textContent = randomTemp;
+                
+                // Update hourly forecast
+                const hourlyItems = document.querySelectorAll('.hourly-item');
+                hourlyItems.forEach((item, index) => {
+                    if (index > 0) { // Skip "Now"
+                        const tempElement = item.querySelector('div:nth-child(3)');
+                        const baseTemp = parseInt(randomTemp);
+                        const randomChange = Math.floor(Math.random() * 5) - 2; // -2 to +2
+                        const newTemp = baseTemp + randomChange + index;
+                        tempElement.textContent = `${Math.max(65, Math.min(80, newTemp))}°`;
+                    }
+                });
+            }
+            
+            // Update weather every 30 seconds
+            setInterval(updateWeatherData, 30000);
+            
+            // Weather alerts
+            const dailyItems = document.querySelectorAll('.daily-item');
+            dailyItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const day = this.querySelector('div:first-child').textContent;
+                    const condition = this.querySelector('i').className;
+                    let conditionText = 'sunny';
+                    
+                    if (condition.includes('cloud-rain')) conditionText = 'rainy';
+                    else if (condition.includes('cloud-sun')) conditionText = 'partly cloudy';
+                    else if (condition.includes('cloud')) conditionText = 'cloudy';
+                    
+                    alert(`${day}: ${conditionText} weather`);
+                });
+            });
+            
+            // Map button functionality
+            document.querySelector('.app-header-btn').addEventListener('click', function() {
+                alert('Show weather map');
+            });
+            
+            // Back button functionality
+            document.getElementById('app-back-btn').addEventListener('click', function() {
+                window.parent.postMessage({ action: 'goHome' }, '*');
+            });
+            
+            // Change background based on weather
+            function updateWeatherBackground() {
+                const weatherContainer = document.querySelector('.weather-container');
+                const conditions = [
+                    'linear-gradient(180deg, #5AC8FA 0%, #007AFF 100%)', // Sunny
+                    'linear-gradient(180deg, #8E8E93 0%, #5A5A5E 100%)', // Cloudy
+                    'linear-gradient(180deg, #4A90E2 0%, #1C6BB3 100%)', // Rainy
+                    'linear-gradient(180deg, #FF9500 0%, #FF5E3A 100%)'  // Sunset
+                ];
+                
+                const randomCondition = conditions[Math.floor(Math.random() * conditions.length)];
+                weatherContainer.style.background = randomCondition;
+            }
+            
+            // Change background every minute
+            setInterval(updateWeatherBackground, 60000);
+        });
+    </script>
+</body>
+</html>

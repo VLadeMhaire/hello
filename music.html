@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="app-header" style="background: #000; color: white; border-bottom: 1px solid #333;">
+        <button class="back-button" id="app-back-btn" style="color: white;">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h2 class="app-title" style="color: white;">Music</h2>
+        <button class="app-header-btn" style="color: white;">
+            <i class="fas fa-ellipsis-v"></i>
+        </button>
+    </div>
+    
+    <div class="app-content" style="background: #000; color: white;">
+        <div class="music-player">
+            <div class="now-playing">
+                <div class="album-art" style="background: linear-gradient(135deg, #FF2D55, #FF9500);">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="song-info">
+                    <h3 style="color: white;">Blinding Lights</h3>
+                    <p style="color: rgba(255,255,255,0.7);">The Weeknd</p>
+                </div>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress" style="width: 65%;"></div>
+            </div>
+            
+            <div class="time-display">
+                <span>2:15</span>
+                <span>3:20</span>
+            </div>
+            
+            <div class="player-controls">
+                <button class="control-btn">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button class="control-btn">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="control-btn play-btn">
+                    <i class="fas fa-pause"></i>
+                </button>
+                <button class="control-btn">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button class="control-btn">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+            
+            <div class="playlist">
+                <h3 style="color: white; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-list-music"></i> Now Playing
+                </h3>
+                <div class="playlist-items">
+                    <div class="playlist-item active">
+                        <div class="playlist-item-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="playlist-item-info">
+                            <div class="playlist-song">Blinding Lights</div>
+                            <div class="playlist-artist">The Weeknd • After Hours</div>
+                        </div>
+                        <div class="playlist-item-duration">3:20</div>
+                    </div>
+                    
+                    <div class="playlist-item">
+                        <div class="playlist-item-icon">
+                            <i class="far fa-play-circle"></i>
+                        </div>
+                        <div class="playlist-item-info">
+                            <div class="playlist-song">Save Your Tears</div>
+                            <div class="playlist-artist">The Weeknd • After Hours</div>
+                        </div>
+                        <div class="playlist-item-duration">3:35</div>
+                    </div>
+                    
+                    <div class="playlist-item">
+                        <div class="playlist-item-icon">
+                            <i class="far fa-play-circle"></i>
+                        </div>
+                        <div class="playlist-item-info">
+                            <div class="playlist-song">Starboy</div>
+                            <div class="playlist-artist">The Weeknd • Starboy</div>
+                        </div>
+                        <div class="playlist-item-duration">3:50</div>
+                    </div>
+                    
+                    <div class="playlist-item">
+                        <div class="playlist-item-icon">
+                            <i class="far fa-play-circle"></i>
+                        </div>
+                        <div class="playlist-item-info">
+                            <div class="playlist-song">The Hills</div>
+                            <div class="playlist-artist">The Weeknd • Beauty Behind the Madness</div>
+                        </div>
+                        <div class="playlist-item-duration">3:41</div>
+                    </div>
+                    
+                    <div class="playlist-item">
+                        <div class="playlist-item-icon">
+                            <i class="far fa-play-circle"></i>
+                        </div>
+                        <div class="playlist-item-info">
+                            <div class="playlist-song">Can't Feel My Face</div>
+                            <div class="playlist-artist">The Weeknd • Beauty Behind the Madness</div>
+                        </div>
+                        <div class="playlist-item-duration">3:33</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="music-tabs" style="display: flex; justify-content: space-around; padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;">
+                <button class="music-tab active" style="background: none; border: none; color: white; font-size: 1.5rem;">
+                    <i class="fas fa-play-circle"></i>
+                </button>
+                <button class="music-tab" style="background: none; border: none; color: rgba(255,255,255,0.5); font-size: 1.5rem;">
+                    <i class="fas fa-music"></i>
+                </button>
+                <button class="music-tab" style="background: none; border: none; color: rgba(255,255,255,0.5); font-size: 1.5rem;">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="music-tab" style="background: none; border: none; color: rgba(255,255,255,0.5); font-size: 1.5rem;">
+                    <i class="fas fa-user"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const playBtn = document.querySelector('.play-btn i');
+            const controlBtns = document.querySelectorAll('.control-btn');
+            const playlistItems = document.querySelectorAll('.playlist-item');
+            const musicTabs = document.querySelectorAll('.music-tab');
+            const progressBar = document.querySelector('.progress-bar');
+            const progress = document.querySelector('.progress');
+            
+            let isPlaying = true;
+            
+            // Play/Pause button
+            playBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (isPlaying) {
+                    this.classList.remove('fa-pause');
+                    this.classList.add('fa-play');
+                    isPlaying = false;
+                } else {
+                    this.classList.remove('fa-play');
+                    this.classList.add('fa-pause');
+                    isPlaying = true;
+                }
+            });
+            
+            // Control buttons
+            controlBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const icon = this.querySelector('i').className;
+                    
+                    if (icon.includes('step-backward')) {
+                        alert('Previous track');
+                    } else if (icon.includes('step-forward')) {
+                        alert('Next track');
+                    } else if (icon.includes('random')) {
+                        alert('Shuffle mode toggled');
+                    } else if (icon.includes('redo')) {
+                        alert('Repeat mode toggled');
+                    }
+                });
+            });
+            
+            // Playlist items
+            playlistItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active from all items
+                    playlistItems.forEach(i => i.classList.remove('active'));
+                    
+                    // Add active to clicked item
+                    this.classList.add('active');
+                    
+                    // Update player info
+                    const song = this.querySelector('.playlist-song').textContent;
+                    const artist = this.querySelector('.playlist-artist').textContent.split('•')[0].trim();
+                    const album = this.querySelector('.playlist-artist').textContent.split('•')[1].trim();
+                    
+                    document.querySelector('.song-info h3').textContent = song;
+                    document.querySelector('.song-info p').textContent = artist;
+                    
+                    // Reset to play state
+                    const playIcon = document.querySelector('.play-btn i');
+                    playIcon.classList.remove('fa-play');
+                    playIcon.classList.add('fa-pause');
+                    isPlaying = true;
+                    
+                    // Update progress randomly
+                    const randomProgress = Math.floor(Math.random() * 30) + 50;
+                    progress.style.width = `${randomProgress}%`;
+                });
+            });
+            
+            // Music tabs
+            musicTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    musicTabs.forEach(t => {
+                        t.style.color = 'rgba(255,255,255,0.5)';
+                        t.classList.remove('active');
+                    });
+                    
+                    this.style.color = 'white';
+                    this.classList.add('active');
+                    
+                    const icon = this.querySelector('i').className;
+                    if (icon.includes('music')) {
+                        alert('Switch to Library tab');
+                    } else if (icon.includes('search')) {
+                        alert('Switch to Search tab');
+                    } else if (icon.includes('user')) {
+                        alert('Switch to Profile tab');
+                    }
+                });
+            });
+            
+            // Progress bar click
+            progressBar.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const clickPosition = e.clientX - rect.left;
+                const percentage = (clickPosition / rect.width) * 100;
+                
+                progress.style.width = `${Math.min(100, Math.max(0, percentage))}%`;
+                
+                // Calculate time (simplified)
+                const totalTime = 200; // 3:20 in seconds
+                const currentTime = (percentage / 100) * totalTime;
+                const minutes = Math.floor(currentTime / 60);
+                const seconds = Math.floor(currentTime % 60);
+                
+                document.querySelector('.time-display span:first-child').textContent = 
+                    `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            });
+            
+            // Back button functionality
+            document.getElementById('app-back-btn').addEventListener('click', function() {
+                window.parent.postMessage({ action: 'goHome' }, '*');
+            });
+        });
+    </script>
+</body>
+</html>

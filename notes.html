@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="app-header">
+        <button class="back-button" id="app-back-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h2 class="app-title">Notes</h2>
+        <button class="app-header-btn" id="new-note-btn">
+            <i class="fas fa-edit"></i>
+        </button>
+    </div>
+    
+    <div class="app-content">
+        <div class="notes-container" style="padding: 20px;">
+            <!-- Search Bar -->
+            <div class="search-bar" style="margin-bottom: 20px;">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search Notes">
+            </div>
+            
+            <!-- Folders -->
+            <div class="notes-folders" style="margin-bottom: 25px;">
+                <h3 style="color: #1d1d1f; margin-bottom: 15px;">Folders</h3>
+                <div style="display: flex; overflow-x: auto; gap: 15px; padding-bottom: 10px;">
+                    <div class="folder-item" style="min-width: 100px; background: #FFD60A; border-radius: 12px; padding: 15px; cursor: pointer;">
+                        <div style="font-size: 1.5rem; color: white; margin-bottom: 10px; text-align: center;">
+                            <i class="fas fa-sticky-note"></i>
+                        </div>
+                        <div style="font-weight: 600; color: white; text-align: center;">All Notes</div>
+                        <div style="font-size: 0.8rem; color: rgba(255,255,255,0.8); text-align: center;">12 notes</div>
+                    </div>
+                    
+                    <div class="folder-item" style="min-width: 100px; background: #34C759; border-radius: 12px; padding: 15px; cursor: pointer;">
+                        <div style="font-size: 1.5rem; color: white; margin-bottom: 10px; text-align: center;">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div style="font-weight: 600; color: white; text-align: center;">Work</div>
+                        <div style="font-size: 0.8rem; color: rgba(255,255,255,0.8); text-align: center;">5 notes</div>
+                    </div>
+                    
+                    <div class="folder-item" style="min-width: 100px; background: #007AFF; border-radius: 12px; padding: 15px; cursor: pointer;">
+                        <div style="font-size: 1.5rem; color: white; margin-bottom: 10px; text-align: center;">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div style="font-weight: 600; color: white; text-align: center;">Ideas</div>
+                        <div style="font-size: 0.8rem; color: rgba(255,255,255,0.8); text-align: center;">8 notes</div>
+                    </div>
+                    
+                    <div class="folder-item" style="min-width: 100px; background: #FF9500; border-radius: 12px; padding: 15px; cursor: pointer;">
+                        <div style="font-size: 1.5rem; color: white; margin-bottom: 10px; text-align: center;">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div style="font-weight: 600; color: white; text-align: center;">Shopping</div>
+                        <div style="font-size: 0.8rem; color: rgba(255,255,255,0.8); text-align: center;">3 notes</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Notes List -->
+            <div class="notes-list">
+                <h3 style="color: #1d1d1f; margin-bottom: 15px;">Recent Notes</h3>
+                
+                <div class="note-items">
+                    <div class="note-item" style="padding: 15px; border-bottom: 1px solid #e5e5ea; cursor: pointer;">
+                        <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 8px;">Meeting Notes - Nov 15</div>
+                        <div style="font-size: 0.9rem; color: #8e8e93; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            Discussed Q4 projections, new marketing campaign, and team restructuring. Need to follow up with design team about new assets.
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-size: 0.8rem; color: #8e8e93;">Today, 10:30 AM</div>
+                            <div style="display: flex; gap: 10px;">
+                                <i class="fas fa-check-circle" style="color: #34C759; font-size: 0.9rem;"></i>
+                                <i class="fas fa-paperclip" style="color: #8e8e93; font-size: 0.9rem;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item" style="padding: 15px; border-bottom: 1px solid #e5e5ea; cursor: pointer;">
+                        <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 8px;">Grocery List</div>
+                        <div style="font-size: 0.9rem; color: #8e8e93; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            • Milk • Eggs • Bread • Coffee • Fruits • Vegetables • Chicken • Pasta
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-size: 0.8rem; color: #8e8e93;">Yesterday, 5:45 PM</div>
+                            <div style="display: flex; gap: 10px;">
+                                <i class="fas fa-list" style="color: #007AFF; font-size: 0.9rem;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item" style="padding: 15px; border-bottom: 1px solid #e5e5ea; cursor: pointer;">
+                        <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 8px;">Project Ideas</div>
+                        <div style="font-size: 0.9rem; color: #8e8e93; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            New mobile app concept: Health tracker with AI recommendations. Need to research market and create wireframes.
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-size: 0.8rem; color: #8e8e93;">Nov 13, 2:15 PM</div>
+                            <div style="display: flex; gap: 10px;">
+                                <i class="fas fa-lightbulb" style="color: #FFD60A; font-size: 0.9rem;"></i>
+                                <i class="fas fa-image" style="color: #8e8e93; font-size: 0.9rem;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item" style="padding: 15px; border-bottom: 1px solid #e5e5ea; cursor: pointer;">
+                        <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 8px;">Book Recommendations</div>
+                        <div style="font-size: 0.9rem; color: #8e8e93; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            1. Atomic Habits 2. Deep Work 3. The Pragmatic Programmer 4. Thinking, Fast and Slow
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-size: 0.8rem; color: #8e8e93;">Nov 10, 11:20 AM</div>
+                            <div style="display: flex; gap: 10px;">
+                                <i class="fas fa-book" style="color: #FF9500; font-size: 0.9rem;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-item" style="padding: 15px; cursor: pointer;">
+                        <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 8px;">Travel Plans</div>
+                        <div style="font-size: 0.9rem; color: #8e8e93; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            Hawaii trip in December. Flights booked. Need to reserve hotel and plan activities.
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="font-size: 0.8rem; color: #8e8e93;">Nov 8, 9:15 AM</div>
+                            <div style="display: flex; gap: 10px;">
+                                <i class="fas fa-plane" style="color: #5AC8FA; font-size: 0.9rem;"></i>
+                                <i class="fas fa-calendar" style="color: #FF3B30; font-size: 0.9rem;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- New Note Button -->
+            <div class="new-note-button" style="position: fixed; bottom: 20px; right: 20px;">
+                <button style="width: 60px; height: 60px; border-radius: 30px; background: #FFCC00; color: white; border: none; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);">
+                    <i class="fas fa-pen"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const noteItems = document.querySelectorAll('.note-item');
+            const folderItems = document.querySelectorAll('.folder-item');
+            const newNoteBtn = document.getElementById('new-note-btn');
+            const bottomNewNoteBtn = document.querySelector('.new-note-button button');
+            const searchInput = document.querySelector('.search-bar input');
+            
+            // Note items click
+            noteItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const noteTitle = this.querySelector('div:first-child').textContent;
+                    const noteContent = this.querySelector('div:nth-child(2)').textContent;
+                    openNoteEditor(noteTitle, noteContent);
+                });
+            });
+            
+            // Folder items click
+            folderItems.forEach(folder => {
+                folder.addEventListener('click', function() {
+                    const folderName = this.querySelector('div:nth-child(2)').textContent;
+                    const noteCount = this.querySelector('div:nth-child(3)').textContent;
+                    alert(`Open ${folderName} folder (${noteCount})`);
+                });
+            });
+            
+            // New note buttons
+            function createNewNote() {
+                openNoteEditor('New Note', 'Start typing here...');
+            }
+            
+            newNoteBtn.addEventListener('click', createNewNote);
+            bottomNewNoteBtn.addEventListener('click', createNewNote);
+            
+            // Search functionality
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                noteItems.forEach(item => {
+                    const title = item.querySelector('div:first-child').textContent.toLowerCase();
+                    const content = item.querySelector('div:nth-child(2)').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Note editor
+            function openNoteEditor(title, content) {
+                // Create modal for note editor
+                const editorModal = document.createElement('div');
+                editorModal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: white;
+                    z-index: 1000;
+                    display: flex;
+                    flex-direction: column;
+                `;
+                
+                editorModal.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #e5e5ea;">
+                        <button id="close-editor" style="background: none; border: none; color: #007AFF; font-size: 1rem; cursor: pointer;">
+                            <i class="fas fa-chevron-left"></i> Notes
+                        </button>
+                        <div style="display: flex; gap: 15px;">
+                            <button class="editor-btn" id="share-note" style="background: none; border: none; color: #007AFF; font-size: 1rem; cursor: pointer;">
+                                <i class="fas fa-share"></i>
+                            </button>
+                            <button class="editor-btn" id="delete-note" style="background: none; border: none; color: #FF3B30; font-size: 1rem; cursor: pointer;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div style="flex: 1; padding: 20px; overflow-y: auto;">
+                        <input type="text" id="note-title" value="${title}" style="width: 100%; font-size: 1.5rem; font-weight: 600; color: #1d1d1f; border: none; margin-bottom: 20px; padding: 10px 0;">
+                        
+                        <textarea id="note-content" style="width: 100%; height: 300px; font-size: 1.1rem; color: #1d1d1f; border: none; resize: none; line-height: 1.5; padding: 10px 0;">
+                            ${content}
+                        </textarea>
+                        
+                        <div class="note-tools" style="margin-top: 30px; padding: 20px; background: #f2f2f7; border-radius: 12px;">
+                            <h4 style="color: #1d1d1f; margin-bottom: 15px;">Formatting Tools</h4>
+                            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                                <button class="format-btn" data-format="bold" style="padding: 10px 15px; background: white; border: 1px solid #e5e5ea; border-radius: 8px; cursor: pointer;">
+                                    <i class="fas fa-bold"></i>
+                                </button>
+                                <button class="format-btn" data-format="italic" style="padding: 10px 15px; background: white; border: 1px solid #e5e5ea; border-radius: 8px; cursor: pointer;">
+                                    <i class="fas fa-italic"></i>
+                                </button>
+                                <button class="format-btn" data-format="underline" style="padding: 10px 15px; background: white; border: 1px solid #e5e5ea; border-radius: 8px; cursor: pointer;">
+                                    <i class="fas fa-underline"></i>
+                                </button>
+                                <button class="format-btn" data-format="list" style="padding: 10px 15px; background: white; border: 1px solid #e5e5ea; border-radius: 8px; cursor: pointer;">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                                <button class="format-btn" data-format="checklist" style="padding: 10px 15px; background: white; border: 1px solid #e5e5ea; border-radius: 8px; cursor: pointer;">
+                                    <i class="fas fa-check-square"></i>
+                                </button>
+                                <button class="format-btn" data-format="camera" style="padding: 10px 15px; background: white; border: 1px solid #e5e5ea; border-radius: 8px; cursor: pointer;">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(editorModal);
+                
+                // Editor functionality
+                const closeBtn = document.getElementById('close-editor');
+                const shareBtn = document.getElementById('share-note');
+                const deleteBtn = document.getElementById('delete-note');
+                const titleInput = document.getElementById('note-title');
+                const contentTextarea = document.getElementById('note-content');
+                const formatBtns = document.querySelectorAll('.format-btn');
+                
+                closeBtn.addEventListener('click', function() {
+                    // Save note (simplified)
+                    const updatedTitle = titleInput.value;
+                    const updatedContent = contentTextarea.value;
+                    
+                    if (updatedTitle !== title || updatedContent !== content) {
+                        alert('Note saved successfully!');
+                    }
+                    
+                    document.body.removeChild(editorModal);
+                });
+                
+                shareBtn.addEventListener('click', function() {
+                    alert('Share this note');
+                });
+                
+                deleteBtn.addEventListener('click', function() {
+                    if (confirm('Delete this note?')) {
+                        alert('Note deleted');
+                        document.body.removeChild(editorModal);
+                    }
+                });
+                
+                formatBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const format = this.dataset.format;
+                        
+                        switch(format) {
+                            case 'bold':
+                                alert('Apply bold formatting');
+                                break;
+                            case 'italic':
+                                alert('Apply italic formatting');
+                                break;
+                            case 'underline':
+                                alert('Apply underline formatting');
+                                break;
+                            case 'list':
+                                alert('Insert bullet list');
+                                break;
+                            case 'checklist':
+                                alert('Insert checklist');
+                                break;
+                            case 'camera':
+                                alert('Add photo from camera');
+                                break;
+                        }
+                    });
+                });
+                
+                // Auto-focus content
+                contentTextarea.focus();
+            }
+            
+            // Back button functionality
+            document.getElementById('app-back-btn').addEventListener('click', function() {
+                window.parent.postMessage({ action: 'goHome' }, '*');
+            });
+            
+            // Simulate note updates
+            function simulateNoteUpdates() {
+                const noteTitles = [
+                    'Meeting Notes - Nov 15',
+                    'Grocery List',
+                    'Project Ideas',
+                    'Book Recommendations',
+                    'Travel Plans'
+                ];
+                
+                const noteContents = [
+                    'Discussed Q4 projections, new marketing campaign...',
+                    '• Milk • Eggs • Bread • Coffee • Fruits...',
+                    'New mobile app concept: Health tracker with AI...',
+                    '1. Atomic Habits 2. Deep Work 3. The Pragmatic...',
+                    'Hawaii trip in December. Flights booked...'
+                ];
+                
+                const times = [
+                    'Today, 10:30 AM',
+                    'Yesterday, 5:45 PM',
+                    'Nov 13, 2:15 PM',
+                    'Nov 10, 11:20 AM',
+                    'Nov 8, 9:15 AM'
+                ];
+                
+                // Randomly update a note
+                const randomIndex = Math.floor(Math.random() * noteItems.length);
+                const noteItem = noteItems[randomIndex];
+                
+                noteItem.querySelector('div:first-child').textContent = noteTitles[randomIndex];
+                noteItem.querySelector('div:nth-child(2)').textContent = noteContents[randomIndex];
+                noteItem.querySelector('div:nth-child(3) div:first-child').textContent = times[randomIndex];
+            }
+            
+            // Update notes every 30 seconds
+            setInterval(simulateNoteUpdates, 30000);
+        });
+    </script>
+</body>
+</html>

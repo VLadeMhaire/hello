@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="app-header">
+        <button class="back-button" id="app-back-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h2 class="app-title">Messages</h2>
+        <button class="app-header-btn">
+            <i class="fas fa-edit"></i>
+        </button>
+    </div>
+    
+    <div class="app-content">
+        <div class="messages-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search Messages">
+            </div>
+            
+            <div class="conversation-list">
+                <div class="conversation-item unread">
+                    <div class="contact-avatar" style="background-color: #FF3B30;">
+                        JB
+                    </div>
+                    <div class="conversation-info">
+                        <div class="contact-name">Johnny Bravo</div>
+                        <div class="last-message">Hey! How are you doing today?</div>
+                    </div>
+                    <div class="conversation-meta">
+                        <div class="message-time">10:30 AM</div>
+                        <div class="unread-badge">3</div>
+                    </div>
+                </div>
+                
+                <div class="conversation-item">
+                    <div class="contact-avatar" style="background-color: #007AFF;">
+                        AS
+                    </div>
+                    <div class="conversation-info">
+                        <div class="contact-name">Apple Support</div>
+                        <div class="last-message">Your appointment is confirmed for tomorrow at 2 PM</div>
+                    </div>
+                    <div class="conversation-meta">
+                        <div class="message-time">Yesterday</div>
+                    </div>
+                </div>
+                
+                <div class="conversation-item">
+                    <div class="contact-avatar" style="background-color: #34C759;">
+                        MB
+                    </div>
+                    <div class="conversation-info">
+                        <div class="contact-name">Mom</div>
+                        <div class="last-message">Don't forget about dinner on Sunday!</div>
+                    </div>
+                    <div class="conversation-meta">
+                        <div class="message-time">Oct 28</div>
+                    </div>
+                </div>
+                
+                <div class="conversation-item">
+                    <div class="contact-avatar" style="background-color: #FF9500;">
+                        WS
+                    </div>
+                    <div class="conversation-info">
+                        <div class="contact-name">Work Slack</div>
+                        <div class="last-message">Meeting reminder: Quarterly review tomorrow</div>
+                    </div>
+                    <div class="conversation-meta">
+                        <div class="message-time">Oct 27</div>
+                    </div>
+                </div>
+                
+                <div class="conversation-item">
+                    <div class="contact-avatar" style="background-color: #5856D6;">
+                        JW
+                    </div>
+                    <div class="conversation-info">
+                        <div class="contact-name">Jenny White</div>
+                        <div class="last-message">Thanks for the birthday wishes! 🎂</div>
+                    </div>
+                    <div class="conversation-meta">
+                        <div class="message-time">Oct 25</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="new-message">
+                <button class="new-message-btn" id="new-message-btn">
+                    <i class="fas fa-edit"></i> New Message
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const newMessageBtn = document.getElementById('new-message-btn');
+            const conversationItems = document.querySelectorAll('.conversation-item');
+            
+            // New message button
+            newMessageBtn.addEventListener('click', function() {
+                alert('Start a new conversation');
+            });
+            
+            // Conversation items click
+            conversationItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const contactName = this.querySelector('.contact-name').textContent;
+                    alert(`Opening conversation with ${contactName}`);
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-bar input');
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                conversationItems.forEach(item => {
+                    const contactName = item.querySelector('.contact-name').textContent.toLowerCase();
+                    const lastMessage = item.querySelector('.last-message').textContent.toLowerCase();
+                    
+                    if (contactName.includes(searchTerm) || lastMessage.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Back button functionality
+            document.getElementById('app-back-btn').addEventListener('click', function() {
+                window.parent.postMessage({ action: 'goHome' }, '*');
+            });
+        });
+    </script>
+</body>
+</html>

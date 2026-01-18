@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="app-header">
+        <button class="back-button" id="app-back-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h2 class="app-title">Photos</h2>
+        <button class="app-header-btn">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+    
+    <div class="app-content">
+        <div class="photos-container" style="padding: 10px;">
+            <div class="photos-tabs" style="display: flex; justify-content: space-around; border-bottom: 1px solid #e5e5ea; padding-bottom: 10px; margin-bottom: 15px;">
+                <button class="photos-tab active">Library</button>
+                <button class="photos-tab">For You</button>
+                <button class="photos-tab">Albums</button>
+                <button class="photos-tab">Search</button>
+            </div>
+            
+            <div class="photo-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;">
+                <!-- Photo items -->
+                <div class="photo-item" style="aspect-ratio: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; cursor: pointer;">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <div class="photo-item" style="aspect-ratio: 1; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; cursor: pointer;">
+                    <i class="fas fa-city"></i>
+                </div>
+                <div class="photo-item" style="aspect-ratio: 1; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; cursor: pointer;">
+                    <i class="fas fa-umbrella-beach"></i>
+                </div>
+                <div class="photo-item" style="aspect-ratio: 1; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; cursor: pointer;">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <div class="photo-item" style="aspect-ratio: 1; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; cursor: pointer;">
+                    <i class="fas fa-sunset"></i>
+                </div>
+                <div class="photo-item" style="aspect-ratio: 1; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); display: flex; align-items: center; justify-content: center; color: #333; font-size: 2rem; cursor: pointer;">
+                    <i class="fas fa-cat"></i>
+                </div>
+                <div class="photo-item" style="aspect-ratio: 1; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); display: flex; align-items: center; justify-content: center; color: #333; font-size: 2rem; cursor: pointer;">
+                    <i class="fas fa-coffee"></i>
+                </div>
+                <div class="photo-item" style="aspect-ratio: 1; background: linear-gradient(135deg, #a3bded 0%, #6991c7 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; cursor: pointer;">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="photo-item" style="aspect-ratio: 1; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; cursor: pointer;">
+                    <i class="fas fa-birthday-cake"></i>
+                </div>
+                <div class="photo-item" style="aspect-ratio: 1; background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%); display: flex; align-items: center; justify-content: center; color: #333; font-size: 2rem; cursor: pointer;">
+                    <i class="fas fa-hiking"></i>
+                </div>
+                <div class="photo-item" style="aspect-ratio: 1; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); display: flex; align-items: center; justify-content: center; color: #333; font-size: 2rem; cursor: pointer;">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <div class="photo-item" style="aspect-ratio: 1; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); display: flex; align-items: center; justify-content: center; color: #333; font-size: 2rem; cursor: pointer;">
+                    <i class="fas fa-utensils"></i>
+                </div>
+            </div>
+            
+            <div class="photos-albums" style="margin-top: 30px; padding: 0 10px;">
+                <h3 style="color: #1d1d1f; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-book"></i> Albums
+                </h3>
+                
+                <div class="album-list" style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="album-item" style="display: flex; align-items: center; padding: 12px; background: #f2f2f7; border-radius: 12px; cursor: pointer;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; margin-right: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 3px;">Favorites</div>
+                            <div style="font-size: 0.9rem; color: #8e8e93;">24 photos</div>
+                        </div>
+                        <div style="color: #8e8e93;">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="album-item" style="display: flex; align-items: center; padding: 12px; background: #f2f2f7; border-radius: 12px; cursor: pointer;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 10px; margin-right: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 3px;">Vacation 2023</div>
+                            <div style="font-size: 0.9rem; color: #8e8e93;">48 photos</div>
+                        </div>
+                        <div style="color: #8e8e93;">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="album-item" style="display: flex; align-items: center; padding: 12px; background: #f2f2f7; border-radius: 12px; cursor: pointer;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); border-radius: 10px; margin-right: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 3px;">Family</div>
+                            <div style="font-size: 0.9rem; color: #8e8e93;">156 photos</div>
+                        </div>
+                        <div style="color: #8e8e93;">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const photoItems = document.querySelectorAll('.photo-item');
+            const albumItems = document.querySelectorAll('.album-item');
+            const photosTabs = document.querySelectorAll('.photos-tab');
+            
+            // Photo items click
+            photoItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const icon = this.querySelector('i').className;
+                    let photoType = 'photo';
+                    
+                    if (icon.includes('mountain')) photoType = 'mountain photo';
+                    else if (icon.includes('city')) photoType = 'city photo';
+                    else if (icon.includes('beach')) photoType = 'beach photo';
+                    else if (icon.includes('tree')) photoType = 'nature photo';
+                    else if (icon.includes('sunset')) photoType = 'sunset photo';
+                    else if (icon.includes('cat')) photoType = 'pet photo';
+                    else if (icon.includes('coffee')) photoType = 'food photo';
+                    else if (icon.includes('car')) photoType = 'car photo';
+                    else if (icon.includes('cake')) photoType = 'celebration photo';
+                    else if (icon.includes('hiking')) photoType = 'hiking photo';
+                    else if (icon.includes('book')) photoType = 'reading photo';
+                    else if (icon.includes('utensils')) photoType = 'dinner photo';
+                    
+                    alert(`View ${photoType}`);
+                });
+            });
+            
+            // Album items
+            albumItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const albumName = this.querySelector('div:nth-child(2) div:first-child').textContent;
+                    alert(`Open album: ${albumName}`);
+                });
+            });
+            
+            // Photos tabs
+            photosTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    photosTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const tabText = this.textContent;
+                    alert(`Switch to ${tabText} view`);
+                });
+            });
+            
+            // Back button functionality
+            document.getElementById('app-back-btn').addEventListener('click', function() {
+                window.parent.postMessage({ action: 'goHome' }, '*');
+            });
+        });
+    </script>
+    
+    <style>
+        .photos-tab {
+            padding: 8px 0;
+            background: none;
+            border: none;
+            color: #8e8e93;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .photos-tab.active {
+            color: #007AFF;
+        }
+        
+        .photos-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #007AFF;
+            border-radius: 1.5px;
+        }
+    </style>
+</body>
+</html>

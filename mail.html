@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="app-header">
+        <button class="back-button" id="app-back-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h2 class="app-title">Mail</h2>
+        <button class="app-header-btn">
+            <i class="fas fa-edit"></i>
+        </button>
+    </div>
+    
+    <div class="app-content">
+        <div class="mail-container" style="padding: 20px;">
+            <div class="mail-search">
+                <div class="search-bar" style="margin-bottom: 20px;">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search Mail">
+                </div>
+            </div>
+            
+            <div class="mail-folders" style="margin-bottom: 20px;">
+                <div style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px;">
+                    <button class="mail-folder active" style="white-space: nowrap;">Inbox (3)</button>
+                    <button class="mail-folder" style="white-space: nowrap;">Unread</button>
+                    <button class="mail-folder" style="white-space: nowrap;">Starred</button>
+                    <button class="mail-folder" style="white-space: nowrap;">Sent</button>
+                    <button class="mail-folder" style="white-space: nowrap;">Drafts</button>
+                </div>
+            </div>
+            
+            <div class="email-list">
+                <div class="email-item unread">
+                    <div class="email-sender">
+                        <div class="sender-avatar" style="background-color: #007AFF; width: 40px; height: 40px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">
+                            AS
+                        </div>
+                        <div>
+                            <div class="sender-name">Apple Support</div>
+                            <div class="email-subject">Your Apple ID was used to sign in to a new device</div>
+                            <div class="email-preview">We noticed a new sign-in to your Apple ID...</div>
+                        </div>
+                    </div>
+                    <div class="email-meta">
+                        <div class="email-time">10:30 AM</div>
+                        <div class="email-star">
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="email-item">
+                    <div class="email-sender">
+                        <div class="sender-avatar" style="background-color: #34C759; width: 40px; height: 40px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">
+                            GP
+                        </div>
+                        <div>
+                            <div class="sender-name">GitHub Projects</div>
+                            <div class="email-subject">Weekly digest: Updates from your repositories</div>
+                            <div class="email-preview">Here's what happened in your repositories last week...</div>
+                        </div>
+                    </div>
+                    <div class="email-meta">
+                        <div class="email-time">Yesterday</div>
+                        <div class="email-star">
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="email-item">
+                    <div class="email-sender">
+                        <div class="sender-avatar" style="background-color: #FF9500; width: 40px; height: 40px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">
+                            NS
+                        </div>
+                        <div>
+                            <div class="sender-name">Netflix</div>
+                            <div class="email-subject">New shows added just for you</div>
+                            <div class="email-preview">Check out the latest releases we think you'll love...</div>
+                        </div>
+                    </div>
+                    <div class="email-meta">
+                        <div class="email-time">Oct 28</div>
+                        <div class="email-star">
+                            <i class="fas fa-star" style="color: #FFCC00;"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="email-item">
+                    <div class="email-sender">
+                        <div class="sender-avatar" style="background-color: #FF3B30; width: 40px; height: 40px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">
+                            AM
+                        </div>
+                        <div>
+                            <div class="sender-name">Amazon</div>
+                            <div class="email-subject">Your order has shipped!</div>
+                            <div class="email-preview">Great news! Your order is on its way...</div>
+                        </div>
+                    </div>
+                    <div class="email-meta">
+                        <div class="email-time">Oct 27</div>
+                        <div class="email-star">
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="compose-button" style="position: fixed; bottom: 30px; right: 30px;">
+                <button style="width: 60px; height: 60px; border-radius: 30px; background-color: #007AFF; color: white; border: none; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);">
+                    <i class="fas fa-pen"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailItems = document.querySelectorAll('.email-item');
+            const mailFolders = document.querySelectorAll('.mail-folder');
+            const composeBtn = document.querySelector('.compose-button button');
+            
+            // Email item click
+            emailItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const sender = this.querySelector('.sender-name').textContent;
+                    const subject = this.querySelector('.email-subject').textContent;
+                    alert(`Open email from ${sender}: ${subject}`);
+                });
+            });
+            
+            // Mail folder click
+            mailFolders.forEach(folder => {
+                folder.addEventListener('click', function() {
+                    mailFolders.forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+                    alert(`Switching to ${this.textContent} folder`);
+                });
+            });
+            
+            // Compose button
+            composeBtn.addEventListener('click', function() {
+                alert('Compose new email');
+            });
+            
+            // Star toggle
+            const stars = document.querySelectorAll('.email-star i');
+            stars.forEach(star => {
+                star.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (this.classList.contains('far')) {
+                        this.classList.remove('far');
+                        this.classList.add('fas');
+                        this.style.color = '#FFCC00';
+                    } else {
+                        this.classList.remove('fas');
+                        this.classList.add('far');
+                        this.style.color = '';
+                    }
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-bar input');
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                emailItems.forEach(item => {
+                    const sender = item.querySelector('.sender-name').textContent.toLowerCase();
+                    const subject = item.querySelector('.email-subject').textContent.toLowerCase();
+                    const preview = item.querySelector('.email-preview').textContent.toLowerCase();
+                    
+                    if (sender.includes(searchTerm) || subject.includes(searchTerm) || preview.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Back button functionality
+            document.getElementById('app-back-btn').addEventListener('click', function() {
+                window.parent.postMessage({ action: 'goHome' }, '*');
+            });
+        });
+    </script>
+    
+    <style>
+        .email-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 15px;
+            border-bottom: 1px solid #e5e5ea;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .email-item:hover {
+            background-color: #f2f2f7;
+        }
+        
+        .email-item.unread {
+            background-color: rgba(0, 122, 255, 0.05);
+        }
+        
+        .email-sender {
+            display: flex;
+            flex: 1;
+        }
+        
+        .sender-name {
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 3px;
+        }
+        
+        .email-subject {
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-bottom: 3px;
+        }
+        
+        .email-preview {
+            font-size: 0.9rem;
+            color: #8e8e93;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 200px;
+        }
+        
+        .email-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+        }
+        
+        .email-time {
+            font-size: 0.8rem;
+            color: #8e8e93;
+        }
+        
+        .email-star {
+            color: #8e8e93;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .mail-folder {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #e5e5ea;
+            background: white;
+            color: #007AFF;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .mail-folder.active {
+            background: #007AFF;
+            color: white;
+            border-color: #007AFF;
+        }
+        
+        .mail-folder:hover:not(.active) {
+            background: #f2f2f7;
+        }
+    </style>
+</body>
+</html>

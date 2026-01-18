@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="app-header">
+        <button class="back-button" id="app-back-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h2 class="app-title">Calendar</h2>
+        <button class="app-header-btn">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+    
+    <div class="app-content">
+        <div class="calendar-container" style="padding: 20px;">
+            <div class="calendar-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <div>
+                    <div style="font-size: 1.8rem; font-weight: 600; color: #1d1d1f;">November 2023</div>
+                    <div style="color: #8e8e93; margin-top: 5px;">Today: November 15</div>
+                </div>
+                <button style="background: #007AFF; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 500; cursor: pointer;">
+                    Today
+                </button>
+            </div>
+            
+            <div class="calendar-weekdays" style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; margin-bottom: 10px; color: #8e8e93; font-weight: 500;">
+                <div>S</div>
+                <div>M</div>
+                <div>T</div>
+                <div>W</div>
+                <div>T</div>
+                <div>F</div>
+                <div>S</div>
+            </div>
+            
+            <div class="calendar-days" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px;">
+                <!-- Week 1 -->
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; color: #c7c7cc; font-weight: 500;">29</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; color: #c7c7cc; font-weight: 500;">30</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; color: #c7c7cc; font-weight: 500;">31</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">1</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">2</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">3</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">4</div>
+                
+                <!-- Week 2 -->
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">5</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">6</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">7</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">8</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">9</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">10</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">11</div>
+                
+                <!-- Week 3 -->
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">12</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">13</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">14</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #007AFF; color: white; border-radius: 50%; font-weight: 600; position: relative;">
+                    15
+                    <div style="position: absolute; bottom: 5px; width: 4px; height: 4px; background: white; border-radius: 2px;"></div>
+                </div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">16</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">17</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">18</div>
+                
+                <!-- Week 4 -->
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">19</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">20</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">21</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">22</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">23</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">24</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">25</div>
+                
+                <!-- Week 5 -->
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">26</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">27</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">28</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">29</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-weight: 500;">30</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; color: #c7c7cc; font-weight: 500;">1</div>
+                <div style="aspect-ratio: 1; display: flex; align-items: center; justify-content: center; color: #c7c7cc; font-weight: 500;">2</div>
+            </div>
+            
+            <div class="events-section" style="margin-top: 30px;">
+                <h3 style="color: #1d1d1f; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-calendar-day"></i> Today's Events
+                </h3>
+                
+                <div class="events-list" style="display: flex; flex-direction: column; gap: 12px;">
+                    <div class="event-item" style="display: flex; align-items: flex-start; padding: 15px; background: rgba(0, 122, 255, 0.1); border-radius: 12px; border-left: 4px solid #007AFF;">
+                        <div style="min-width: 60px; text-align: center; margin-right: 15px;">
+                            <div style="font-weight: 600; color: #007AFF;">9:00</div>
+                            <div style="font-size: 0.8rem; color: #8e8e93;">AM</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">Team Meeting</div>
+                            <div style="font-size: 0.9rem; color: #8e8e93; margin-bottom: 5px;">Conference Room A</div>
+                            <div style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: #8e8e93;">
+                                <i class="fas fa-clock"></i>
+                                <span>9:00 AM - 10:00 AM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item" style="display: flex; align-items: flex-start; padding: 15px; background: rgba(52, 199, 89, 0.1); border-radius: 12px; border-left: 4px solid #34C759;">
+                        <div style="min-width: 60px; text-align: center; margin-right: 15px;">
+                            <div style="font-weight: 600; color: #34C759;">12:30</div>
+                            <div style="font-size: 0.8rem; color: #8e8e93;">PM</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">Lunch with Sarah</div>
+                            <div style="font-size: 0.9rem; color: #8e8e93; margin-bottom: 5px;">Downtown Cafe</div>
+                            <div style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: #8e8e93;">
+                                <i class="fas fa-clock"></i>
+                                <span>12:30 PM - 1:30 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item" style="display: flex; align-items: flex-start; padding: 15px; background: rgba(255, 149, 0, 0.1); border-radius: 12px; border-left: 4px solid #FF9500;">
+                        <div style="min-width: 60px; text-align: center; margin-right: 15px;">
+                            <div style="font-weight: 600; color: #FF9500;">3:00</div>
+                            <div style="font-size: 0.8rem; color: #8e8e93;">PM</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">Project Review</div>
+                            <div style="font-size: 0.9rem; color: #8e8e93; margin-bottom: 5px;">Virtual Meeting</div>
+                            <div style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: #8e8e93;">
+                                <i class="fas fa-clock"></i>
+                                <span>3:00 PM - 4:30 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item" style="display: flex; align-items: flex-start; padding: 15px; background: rgba(88, 86, 214, 0.1); border-radius: 12px; border-left: 4px solid #5856D6;">
+                        <div style="min-width: 60px; text-align: center; margin-right: 15px;">
+                            <div style="font-weight: 600; color: #5856D6;">7:00</div>
+                            <div style="font-size: 0.8rem; color: #8e8e93;">PM</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">Yoga Class</div>
+                            <div style="font-size: 0.9rem; color: #8e8e93; margin-bottom: 5px;">Wellness Center</div>
+                            <div style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: #8e8e93;">
+                                <i class="fas fa-clock"></i>
+                                <span>7:00 PM - 8:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="calendar-view" style="position: fixed; bottom: 20px; right: 20px;">
+                <button style="width: 60px; height: 60px; border-radius: 30px; background: #007AFF; color: white; border: none; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarDays = document.querySelectorAll('.calendar-days > div');
+            const eventItems = document.querySelectorAll('.event-item');
+            const todayBtn = document.querySelector('.calendar-header button');
+            const addEventBtn = document.querySelector('.calendar-view button');
+            const headerAddBtn = document.querySelector('.app-header-btn');
+            
+            // Today button
+            todayBtn.addEventListener('click', function() {
+                // Remove highlight from all days
+                calendarDays.forEach(day => {
+                    day.style.background = '';
+                    day.style.color = '';
+                    day.style.borderRadius = '';
+                    day.style.fontWeight = '500';
+                    
+                    // Remove dot indicator
+                    const dot = day.querySelector('div');
+                    if (dot) dot.remove();
+                    
+                    // Reset today's date (15th)
+                    if (day.textContent.trim() === '15') {
+                        day.style.background = '#007AFF';
+                        day.style.color = 'white';
+                        day.style.borderRadius = '50%';
+                        day.style.fontWeight = '600';
+                        
+                        const dot = document.createElement('div');
+                        dot.style.position = 'absolute';
+                        dot.style.bottom = '5px';
+                        dot.style.width = '4px';
+                        dot.style.height = '4px';
+                        dot.style.background = 'white';
+                        dot.style.borderRadius = '2px';
+                        day.appendChild(dot);
+                    }
+                });
+                
+                alert('Jumped to today');
+            });
+            
+            // Calendar days click
+            calendarDays.forEach(day => {
+                if (!day.classList.contains('other-month')) {
+                    day.addEventListener('click', function() {
+                        const dayNumber = this.textContent.trim();
+                        
+                        // Remove highlight from all days
+                        calendarDays.forEach(d => {
+                            d.style.background = '';
+                            d.style.color = '';
+                            d.style.borderRadius = '';
+                            d.style.fontWeight = '500';
+                            
+                            // Remove dot indicator
+                            const dot = d.querySelector('div');
+                            if (dot) dot.remove();
+                        });
+                        
+                        // Highlight clicked day
+                        this.style.background = '#007AFF';
+                        this.style.color = 'white';
+                        this.style.borderRadius = '50%';
+                        this.style.fontWeight = '600';
+                        
+                        // Add dot indicator
+                        const dot = document.createElement('div');
+                        dot.style.position = 'absolute';
+                        dot.style.bottom = '5px';
+                        dot.style.width = '4px';
+                        dot.style.height = '4px';
+                        dot.style.background = 'white';
+                        dot.style.borderRadius = '2px';
+                        this.appendChild(dot);
+                        
+                        // Update events for selected day
+                        updateEventsForDay(dayNumber);
+                    });
+                }
+            });
+            
+            // Event items click
+            eventItems.forEach(event => {
+                event.addEventListener('click', function() {
+                    const eventName = this.querySelector('div:nth-child(2) div:first-child').textContent;
+                    const eventTime = this.querySelector('div:nth-child(2) div:last-child span').textContent;
+                    alert(`Event: ${eventName}\nTime: ${eventTime}`);
+                });
+            });
+            
+            // Add event buttons
+            addEventBtn.addEventListener('click', function() {
+                alert('Add new event');
+            });
+            
+            headerAddBtn.addEventListener('click', function() {
+                alert('Add new event or calendar');
+            });
+            
+            // Update events for selected day
+            function updateEventsForDay(dayNumber) {
+                const eventNames = [
+                    'Team Meeting',
+                    'Lunch Appointment',
+                    'Dentist Visit',
+                    'Gym Session',
+                    'Movie Night',
+                    'Birthday Party',
+                    'Conference Call'
+                ];
+                
+                const eventLocations = [
+                    'Conference Room A',
+                    'Downtown Cafe',
+                    'Dental Clinic',
+                    'Fitness Center',
+                    'Cinema',
+                    'Friend\'s House',
+                    'Virtual Meeting'
+                ];
+                
+                const eventTimes = [
+                    '9:00 AM - 10:00 AM',
+                    '12:30 PM - 1:30 PM',
+                    '3:00 PM - 4:30 PM',
+                    '7:00 PM - 8:00 PM',
+                    '6:00 PM - 8:30 PM',
+                    '5:00 PM - 10:00 PM',
+                    '11:00 AM - 12:00 PM'
+                ];
+                
+                const eventColors = ['#007AFF', '#34C759', '#FF9500', '#5856D6', '#FF2D55', '#AF52DE', '#FFCC00'];
+                
+                // Clear current events
+                const eventsList = document.querySelector('.events-list');
+                eventsList.innerHTML = '';
+                
+                // Add random events for the day
+                const numEvents = Math.floor(Math.random() * 3) + 2; // 2-4 events
+                
+                for (let i = 0; i < numEvents; i++) {
+                    const eventIndex = Math.floor(Math.random() * eventNames.length);
+                    const color = eventColors[i % eventColors.length];
+                    
+                    const eventItem = document.createElement('div');
+                    eventItem.className = 'event-item';
+                    eventItem.style.cssText = `
+                        display: flex; align-items: flex-start; padding: 15px; 
+                        background: rgba(${parseInt(color.slice(1, 3), 16)}, ${parseInt(color.slice(3, 5), 16)}, ${parseInt(color.slice(5, 7), 16)}, 0.1); 
+                        border-radius: 12px; border-left: 4px solid ${color};
+                        cursor: pointer; margin-bottom: 12px;
+                    `;
+                    
+                    // Random time
+                    const hour = Math.floor(Math.random() * 8) + 9; // 9 AM - 5 PM
+                    const minute = Math.random() > 0.5 ? '00' : '30';
+                    const ampm = hour < 12 ? 'AM' : 'PM';
+                    const displayHour = hour > 12 ? hour - 12 : hour;
+                    
+                    eventItem.innerHTML = `
+                        <div style="min-width: 60px; text-align: center; margin-right: 15px;">
+                            <div style="font-weight: 600; color: ${color};">${displayHour}:${minute}</div>
+                            <div style="font-size: 0.8rem; color: #8e8e93;">${ampm}</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">${eventNames[eventIndex]}</div>
+                            <div style="font-size: 0.9rem; color: #8e8e93; margin-bottom: 5px;">${eventLocations[eventIndex]}</div>
+                            <div style="display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: #8e8e93;">
+                                <i class="fas fa-clock"></i>
+                                <span>${eventTimes[eventIndex]}</span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    eventItem.addEventListener('click', function() {
+                        alert(`Event: ${eventNames[eventIndex]}\nDate: November ${dayNumber}`);
+                    });
+                    
+                    eventsList.appendChild(eventItem);
+                }
+                
+                // Update events section title
+                document.querySelector('.events-section h3').innerHTML = `
+                    <i class="fas fa-calendar-day"></i> Events for November ${dayNumber}
+                `;
+            }
+            
+            // Back button functionality
+            document.getElementById('app-back-btn').addEventListener('click', function() {
+                window.parent.postMessage({ action: 'goHome' }, '*');
+            });
+        });
+    </script>
+</body>
+</html>

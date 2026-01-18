@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="app-header">
+        <button class="back-button" id="app-back-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h2 class="app-title">Phone</h2>
+        <button class="app-header-btn">
+            <i class="fas fa-ellipsis-v"></i>
+        </button>
+    </div>
+    
+    <div class="app-content">
+        <div class="keypad-container">
+            <div class="phone-number-display" id="phone-number">555-1234</div>
+            
+            <div class="keypad">
+                <div class="keypad-row">
+                    <button class="keypad-key" data-number="1">
+                        <span>1</span>
+                        <small></small>
+                    </button>
+                    <button class="keypad-key" data-number="2">
+                        <span>2</span>
+                        <small>ABC</small>
+                    </button>
+                    <button class="keypad-key" data-number="3">
+                        <span>3</span>
+                        <small>DEF</small>
+                    </button>
+                </div>
+                
+                <div class="keypad-row">
+                    <button class="keypad-key" data-number="4">
+                        <span>4</span>
+                        <small>GHI</small>
+                    </button>
+                    <button class="keypad-key" data-number="5">
+                        <span>5</span>
+                        <small>JKL</small>
+                    </button>
+                    <button class="keypad-key" data-number="6">
+                        <span>6</span>
+                        <small>MNO</small>
+                    </button>
+                </div>
+                
+                <div class="keypad-row">
+                    <button class="keypad-key" data-number="7">
+                        <span>7</span>
+                        <small>PQRS</small>
+                    </button>
+                    <button class="keypad-key" data-number="8">
+                        <span>8</span>
+                        <small>TUV</small>
+                    </button>
+                    <button class="keypad-key" data-number="9">
+                        <span>9</span>
+                        <small>WXYZ</small>
+                    </button>
+                </div>
+                
+                <div class="keypad-row">
+                    <button class="keypad-key" data-number="*">
+                        <span>*</span>
+                    </button>
+                    <button class="keypad-key" data-number="0">
+                        <span>0</span>
+                        <small>+</small>
+                    </button>
+                    <button class="keypad-key" data-number="#">
+                        <span>#</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="call-controls">
+                <button class="call-btn delete-btn" id="delete-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="call-btn" id="call-btn">
+                    <i class="fas fa-phone"></i>
+                </button>
+                <button class="call-btn" id="add-contact-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            
+            <div class="recent-calls">
+                <h3><i class="fas fa-history"></i> Recent Calls</h3>
+                <div class="call-list">
+                    <div class="call-item">
+                        <div class="call-icon" style="background-color: #34C759;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="call-info">
+                            <div class="call-name">John Appleseed</div>
+                            <div class="call-time">Mobile • 10:30 AM</div>
+                        </div>
+                        <div class="call-duration">5 min</div>
+                    </div>
+                    <div class="call-item">
+                        <div class="call-icon" style="background-color: #007AFF;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="call-info">
+                            <div class="call-name">Kate Bell</div>
+                            <div class="call-time">iPhone • Yesterday</div>
+                        </div>
+                        <div class="call-duration">2 min</div>
+                    </div>
+                    <div class="call-item">
+                        <div class="call-icon" style="background-color: #5856D6;">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="call-info">
+                            <div class="call-name">Anna Haro</div>
+                            <div class="call-time">FaceTime • Oct 28</div>
+                        </div>
+                        <div class="call-duration">15 min</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneNumberDisplay = document.getElementById('phone-number');
+            const keypadKeys = document.querySelectorAll('.keypad-key');
+            const deleteBtn = document.getElementById('delete-btn');
+            const callBtn = document.getElementById('call-btn');
+            const addContactBtn = document.getElementById('add-contact-btn');
+            
+            let phoneNumber = '555-1234';
+            
+            // Keypad functionality
+            keypadKeys.forEach(key => {
+                key.addEventListener('click', function() {
+                    const number = this.dataset.number;
+                    if (phoneNumber.length < 15) {
+                        phoneNumber += number;
+                        updatePhoneDisplay();
+                    }
+                });
+            });
+            
+            // Delete button
+            deleteBtn.addEventListener('click', function() {
+                if (phoneNumber.length > 0) {
+                    phoneNumber = phoneNumber.slice(0, -1);
+                    updatePhoneDisplay();
+                }
+            });
+            
+            // Call button
+            callBtn.addEventListener('click', function() {
+                alert(`Calling ${phoneNumber}...`);
+                // Add call to recent calls
+                addRecentCall(phoneNumber);
+            });
+            
+            // Add contact button
+            addContactBtn.addEventListener('click', function() {
+                alert(`Add ${phoneNumber} to contacts`);
+            });
+            
+            // Update phone display
+            function updatePhoneDisplay() {
+                // Format phone number
+                let formattedNumber = phoneNumber;
+                if (phoneNumber.length > 3 && phoneNumber.length <= 6) {
+                    formattedNumber = phoneNumber.slice(0, 3) + '-' + phoneNumber.slice(3);
+                } else if (phoneNumber.length > 6) {
+                    formattedNumber = phoneNumber.slice(0, 3) + '-' + phoneNumber.slice(3, 6) + '-' + phoneNumber.slice(6);
+                }
+                phoneNumberDisplay.textContent = formattedNumber;
+            }
+            
+            // Add recent call (simplified)
+            function addRecentCall(number) {
+                // In a real app, this would update the recent calls list
+                console.log(`Added call to ${number} to recent calls`);
+            }
+            
+            // Back button functionality
+            document.getElementById('app-back-btn').addEventListener('click', function() {
+                window.parent.postMessage({ action: 'goHome' }, '*');
+            });
+        });
+    </script>
+</body>
+</html>

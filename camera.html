@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="camera-container">
+        <div class="camera-viewfinder">
+            <!-- Camera overlay -->
+            <div class="camera-overlay">
+                <div class="focus-box"></div>
+                <div class="grid-overlay">
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="camera-mode-selector">
+            <div class="camera-mode active">Photo</div>
+            <div class="camera-mode">Video</div>
+            <div class="camera-mode">Portrait</div>
+            <div class="camera-mode">Pano</div>
+        </div>
+        
+        <div class="camera-controls">
+            <button class="camera-btn" id="flash-btn">
+                <i class="fas fa-bolt"></i>
+            </button>
+            <button class="camera-btn" id="timer-btn">
+                <i class="fas fa-clock"></i>
+            </button>
+            <button class="camera-btn" id="filter-btn">
+                <i class="fas fa-sliders-h"></i>
+            </button>
+            <button class="camera-btn" id="switch-camera">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </div>
+        
+        <div class="camera-shutter">
+            <button class="shutter-btn" id="shutter-btn">
+                <div class="shutter-ring"></div>
+            </button>
+        </div>
+        
+        <div class="camera-gallery">
+            <div class="last-photo" id="last-photo-btn">
+                <i class="fas fa-image"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cameraModes = document.querySelectorAll('.camera-mode');
+            const cameraBtns = document.querySelectorAll('.camera-btn');
+            const shutterBtn = document.getElementById('shutter-btn');
+            const lastPhotoBtn = document.getElementById('last-photo-btn');
+            const flashBtn = document.getElementById('flash-btn');
+            const switchCameraBtn = document.getElementById('switch-camera');
+            const timerBtn = document.getElementById('timer-btn');
+            const filterBtn = document.getElementById('filter-btn');
+            
+            let isFrontCamera = false;
+            let flashMode = 'auto'; // auto, on, off
+            let timerMode = 'off'; // off, 3s, 10s
+            let currentMode = 'photo';
+            
+            // Camera modes
+            cameraModes.forEach(mode => {
+                mode.addEventListener('click', function() {
+                    cameraModes.forEach(m => m.classList.remove('active'));
+                    this.classList.add('active');
+                    currentMode = this.textContent.toLowerCase();
+                    alert(`Switched to ${currentMode} mode`);
+                });
+            });
+            
+            // Shutter button
+            shutterBtn.addEventListener('click', function() {
+                // Animate shutter
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+                
+                // Take photo based on mode
+                switch(currentMode) {
+                    case 'photo':
+                        alert('Photo taken! 📸');
+                        break;
+                    case 'video':
+                        alert('Recording video... 🎥');
+                        break;
+                    case 'portrait':
+                        alert('Portrait photo taken with bokeh effect!');
+                        break;
+                    case 'pano':
+                        alert('Panorama photo taken!');
+                        break;
+                }
+            });
+            
+            // Flash button
+            flashBtn.addEventListener('click', function() {
+                const flashIcons = {
+                    'auto': 'fa-bolt',
+                    'on': 'fa-bolt active',
+                    'off': 'fa-bolt-slash'
+                };
+                
+                if (flashMode === 'auto') {
+                    flashMode = 'on';
+                    this.innerHTML = '<i class="fas fa-bolt" style="color: #FFD60A;"></i>';
+                    alert('Flash: ON');
+                } else if (flashMode === 'on') {
+                    flashMode = 'off';
+                    this.innerHTML = '<i class="fas fa-bolt-slash"></i>';
+                    alert('Flash: OFF');
+                } else {
+                    flashMode = 'auto';
+                    this.innerHTML = '<i class="fas fa-bolt"></i>';
+                    alert('Flash: AUTO');
+                }
+            });
+            
+            // Switch camera
+            switchCameraBtn.addEventListener('click', function() {
+                isFrontCamera = !isFrontCamera;
+                const viewfinder = document.querySelector('.camera-viewfinder');
+                
+                if (isFrontCamera) {
+                    viewfinder.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
+                    alert('Switched to front camera');
+                } else {
+                    viewfinder.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                    alert('Switched to rear camera');
+                }
+            });
+            
+            // Timer button
+            timerBtn.addEventListener('click', function() {
+                const timerOptions = ['off', '3s', '10s'];
+                const currentIndex = timerOptions.indexOf(timerMode);
+                timerMode = timerOptions[(currentIndex + 1) % timerOptions.length];
+                
+                if (timerMode === 'off') {
+                    this.innerHTML = '<i class="fas fa-clock"></i>';
+                } else {
+                    this.innerHTML = `<i class="fas fa-clock" style="color: #FF9500;"></i><span style="font-size: 0.7rem; position: absolute; bottom: -5px;">${timerMode}</span>`;
+                }
+                
+                alert(`Timer: ${timerMode}`);
+            });
+            
+            // Filter button
+            filterBtn.addEventListener('click', function() {
+                alert('Open filter selection');
+            });
+            
+            // Last photo button
+            lastPhotoBtn.addEventListener('click', function() {
+                alert('Open photo gallery');
+            });
+            
+            // Viewfinder click for focus
+            const viewfinder = document.querySelector('.camera-viewfinder');
+            const focusBox = document.querySelector('.focus-box');
+            
+            viewfinder.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Move focus box to click position
+                focusBox.style.left = `${x}px`;
+                focusBox.style.top = `${y}px`;
+                focusBox.style.transform = 'translate(-50%, -50%)';
+                
+                // Animate focus
+                focusBox.style.opacity = '1';
+                focusBox.style.borderColor = '#34C759';
+                
+                setTimeout(() => {
+                    focusBox.style.opacity = '0.7';
+                    focusBox.style.borderColor = 'white';
+                }, 1000);
+            });
+            
+            // Simulate camera view
+            function simulateCameraView() {
+                const viewfinder = document.querySelector('.camera-viewfinder');
+                const gradients = [
+                    'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                    'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                    'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
+                ];
+                
+                let currentGradient = 0;
+                
+                setInterval(() => {
+                    if (!isFrontCamera) {
+                        currentGradient = (currentGradient + 1) % gradients.length;
+                        viewfinder.style.background = gradients[currentGradient];
+                    }
+                }, 3000);
+            }
+            
+            simulateCameraView();
+        });
+    </script>
+    
+    <style>
+        .camera-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: #000;
+        }
+        
+        .camera-viewfinder {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .camera-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .focus-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            border: 2px solid white;
+            border-radius: 10px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .grid-line {
+            border: 1px solid white;
+        }
+        
+        .grid-line:nth-child(2) {
+            grid-column: 2;
+            grid-row: 1 / -1;
+        }
+        
+        .grid-line:nth-child(3) {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+        
+        .camera-mode-selector {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .camera-mode {
+            color: #8e8e93;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .camera-mode.active {
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .camera-controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .camera-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            position: relative;
+        }
+        
+        .camera-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .camera-shutter {
+            position: absolute;
+            bottom: 140px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .shutter-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 4px solid white;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            padding: 0;
+            transition: transform 0.1s;
+        }
+        
+        .shutter-ring {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: white;
+            opacity: 0.5;
+        }
+        
+        .camera-gallery {
+            position: absolute;
+            bottom: 140px;
+            right: 30px;
+        }
+        
+        .last-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .last-photo:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</body>
+</html>

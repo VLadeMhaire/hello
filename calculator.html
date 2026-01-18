@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="app-header" style="background: #000; color: white; border: none;">
+        <button class="back-button" id="app-back-btn" style="color: white;">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h2 class="app-title" style="color: white;">Calculator</h2>
+        <button class="app-header-btn" style="color: white;">
+            <i class="fas fa-history"></i>
+        </button>
+    </div>
+    
+    <div class="app-content" style="background: #000; padding: 0;">
+        <div class="calculator-container">
+            <!-- Display -->
+            <div class="calculator-display" style="padding: 40px 20px 20px 20px; text-align: right;">
+                <div id="calculation" style="color: #8e8e93; font-size: 1.2rem; min-height: 1.5rem; margin-bottom: 10px; overflow: hidden; text-overflow: ellipsis;">123 + 456</div>
+                <div id="display" style="color: white; font-size: 4rem; font-weight: 300; overflow: hidden; text-overflow: ellipsis;">0</div>
+            </div>
+            
+            <!-- Calculator Buttons -->
+            <div class="calculator-buttons" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #333;">
+                <!-- Row 1 -->
+                <button class="calc-btn dark" data-action="clear">C</button>
+                <button class="calc-btn dark" data-action="plus-minus">±</button>
+                <button class="calc-btn dark" data-action="percent">%</button>
+                <button class="calc-btn orange" data-action="divide">÷</button>
+                
+                <!-- Row 2 -->
+                <button class="calc-btn gray" data-number="7">7</button>
+                <button class="calc-btn gray" data-number="8">8</button>
+                <button class="calc-btn gray" data-number="9">9</button>
+                <button class="calc-btn orange" data-action="multiply">×</button>
+                
+                <!-- Row 3 -->
+                <button class="calc-btn gray" data-number="4">4</button>
+                <button class="calc-btn gray" data-number="5">5</button>
+                <button class="calc-btn gray" data-number="6">6</button>
+                <button class="calc-btn orange" data-action="subtract">−</button>
+                
+                <!-- Row 4 -->
+                <button class="calc-btn gray" data-number="1">1</button>
+                <button class="calc-btn gray" data-number="2">2</button>
+                <button class="calc-btn gray" data-number="3">3</button>
+                <button class="calc-btn orange" data-action="add">+</button>
+                
+                <!-- Row 5 -->
+                <button class="calc-btn gray" data-number="0" style="grid-column: span 2;">0</button>
+                <button class="calc-btn gray" data-action="decimal">.</button>
+                <button class="calc-btn orange" data-action="equals">=</button>
+            </div>
+            
+            <!-- Scientific Calculator (Hidden by default) -->
+            <div class="scientific-calculator" style="display: none; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #333; padding: 1px;">
+                <button class="calc-btn dark" data-action="sin">sin</button>
+                <button class="calc-btn dark" data-action="cos">cos</button>
+                <button class="calc-btn dark" data-action="tan">tan</button>
+                <button class="calc-btn dark" data-action="log">log</button>
+                
+                <button class="calc-btn dark" data-action="sqrt">√</button>
+                <button class="calc-btn dark" data-action="power">x²</button>
+                <button class="calc-btn dark" data-action="power3">x³</button>
+                <button class="calc-btn dark" data-action="pi">π</button>
+                
+                <button class="calc-btn dark" data-action="e">e</button>
+                <button class="calc-btn dark" data-action="factorial">x!</button>
+                <button class="calc-btn dark" data-action="ln">ln</button>
+                <button class="calc-btn dark" data-action="exp">exp</button>
+            </div>
+            
+            <!-- Calculator Mode Toggle -->
+            <div class="calculator-mode" style="padding: 15px; background: #000; display: flex; justify-content: center; gap: 20px;">
+                <button id="basic-mode" class="mode-btn active" style="background: none; border: none; color: #007AFF; font-weight: 500; padding: 8px 16px; border-radius: 15px; cursor: pointer;">
+                    Basic
+                </button>
+                <button id="scientific-mode" class="mode-btn" style="background: none; border: none; color: #8e8e93; font-weight: 500; padding: 8px 16px; border-radius: 15px; cursor: pointer;">
+                    Scientific
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calculator state
+            let displayValue = '0';
+            let firstOperand = null;
+            let waitingForSecondOperand = false;
+            let operator = null;
+            let calculation = '';
+            
+            // DOM elements
+            const display = document.getElementById('display');
+            const calculationDisplay = document.getElementById('calculation');
+            const calcButtons = document.querySelectorAll('.calc-btn');
+            const modeButtons = document.querySelectorAll('.mode-btn');
+            const basicModeBtn = document.getElementById('basic-mode');
+            const scientificModeBtn = document.getElementById('scientific-mode');
+            const scientificCalculator = document.querySelector('.scientific-calculator');
+            const historyBtn = document.querySelector('.app-header-btn');
+            
+            // Update display
+            function updateDisplay() {
+                display.textContent = displayValue;
+                calculationDisplay.textContent = calculation;
+                
+                // Handle overflow
+                if (displayValue.length > 10) {
+                    display.style.fontSize = '3rem';
+                } else if (displayValue.length > 7) {
+                    display.style.fontSize = '3.5rem';
+                } else {
+                    display.style.fontSize = '4rem';
+                }
+            }
+            
+            // Input digit
+            function inputDigit(digit) {
+                if (waitingForSecondOperand) {
+                    displayValue = digit;
+                    waitingForSecondOperand = false;
+                } else {
+                    displayValue = displayValue === '0' ? digit : displayValue + digit;
+                }
+                
+                updateDisplay();
+            }
+            
+            // Input decimal
+            function inputDecimal() {
+                if (waitingForSecondOperand) {
+                    displayValue = '0.';
+                    waitingForSecondOperand = false;
+                    return;
+                }
+                
+                if (!displayValue.includes('.')) {
+                    displayValue += '.';
+                }
+                
+                updateDisplay();
+            }
+            
+            // Handle operator
+            function handleOperator(nextOperator) {
+                const inputValue = parseFloat(displayValue);
+                
+                if (firstOperand === null) {
+                    firstOperand = inputValue;
+                } else if (operator) {
+                    const result = performCalculation();
+                    displayValue = `${parseFloat(result.toFixed(7))}`;
+                    firstOperand = parseFloat(displayValue);
+                }
+                
+                waitingForSecondOperand = true;
+                operator = nextOperator;
+                
+                // Update calculation display
+                if (nextOperator === 'equals') {
+                    calculation = '';
+                } else {
+                    calculation = `${firstOperand} ${getOperatorSymbol(operator)}`;
+                }
+                
+                updateDisplay();
+            }
+            
+            // Perform calculation
+            function performCalculation() {
+                const inputValue = parseFloat(displayValue);
+                
+                if (operator === 'add') return firstOperand + inputValue;
+                if (operator === 'subtract') return firstOperand - inputValue;
+                if (operator === 'multiply') return firstOperand * inputValue;
+                if (operator === 'divide') return firstOperand / inputValue;
+                if (operator === 'power') return Math.pow(firstOperand, inputValue);
+                if (operator === 'sqrt') return Math.sqrt(inputValue);
+                if (operator === 'sin') return Math.sin(inputValue * Math.PI / 180);
+                if (operator === 'cos') return Math.cos(inputValue * Math.PI / 180);
+                if (operator === 'tan') return Math.tan(inputValue * Math.PI / 180);
+                if (operator === 'log') return Math.log10(inputValue);
+                if (operator === 'ln') return Math.log(inputValue);
+                if (operator === 'exp') return Math.exp(inputValue);
+                
+                return inputValue;
+            }
+            
+            // Get operator symbol
+            function getOperatorSymbol(op) {
+                const symbols = {
+                    'add': '+',
+                    'subtract': '−',
+                    'multiply': '×',
+                    'divide': '÷',
+                    'equals': '=',
+                    'power': '^',
+                    'sqrt': '√'
+                };
+                return symbols[op] || op;
+            }
+            
+            // Reset calculator
+            function resetCalculator() {
+                displayValue = '0';
+                firstOperand = null;
+                waitingForSecondOperand = false;
+                operator = null;
+                calculation = '';
+                updateDisplay();
+            }
+            
+            // Percentage
+            function handlePercentage() {
+                const currentValue = parseFloat(displayValue);
+                displayValue = (currentValue / 100).toString();
+                updateDisplay();
+            }
+            
+            // Plus/Minus
+            function handlePlusMinus() {
+                displayValue = (parseFloat(displayValue) * -1).toString();
+                updateDisplay();
+            }
+            
+            // Scientific functions
+            function handleScientificFunction(func) {
+                const inputValue = parseFloat(displayValue);
+                let result = inputValue;
+                
+                switch(func) {
+                    case 'sqrt':
+                        result = Math.sqrt(inputValue);
+                        calculation = `√(${inputValue})`;
+                        break;
+                    case 'power':
+                        result = Math.pow(inputValue, 2);
+                        calculation = `(${inputValue})²`;
+                        break;
+                    case 'power3':
+                        result = Math.pow(inputValue, 3);
+                        calculation = `(${inputValue})³`;
+                        break;
+                    case 'sin':
+                        result = Math.sin(inputValue * Math.PI / 180);
+                        calculation = `sin(${inputValue}°)`;
+                        break;
+                    case 'cos':
+                        result = Math.cos(inputValue * Math.PI / 180);
+                        calculation = `cos(${inputValue}°)`;
+                        break;
+                    case 'tan':
+                        result = Math.tan(inputValue * Math.PI / 180);
+                        calculation = `tan(${inputValue}°)`;
+                        break;
+                    case 'log':
+                        result = Math.log10(inputValue);
+                        calculation = `log(${inputValue})`;
+                        break;
+                    case 'ln':
+                        result = Math.log(inputValue);
+                        calculation = `ln(${inputValue})`;
+                        break;
+                    case 'exp':
+                        result = Math.exp(inputValue);
+                        calculation = `exp(${inputValue})`;
+                        break;
+                    case 'pi':
+                        result = Math.PI;
+                        calculation = 'π';
+                        break;
+                    case 'e':
+                        result = Math.E;
+                        calculation = 'e';
+                        break;
+                    case 'factorial':
+                        result = factorial(inputValue);
+                        calculation = `${inputValue}!`;
+                        break;
+                }
+                
+                displayValue = result.toString();
+                updateDisplay();
+            }
+            
+            // Factorial function
+            function factorial(n) {
+                if (n === 0 || n === 1) return 1;
+                let result = 1;
+                for (let i = 2; i <= n; i++) {
+                    result *= i;
+                }
+                return result;
+            }
+            
+            // Calculator button click handler
+            calcButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const { action, number } = this.dataset;
+                    
+                    // Add animation
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                    
+                    if (number) {
+                        inputDigit(number);
+                    } else if (action === 'decimal') {
+                        inputDecimal();
+                    } else if (action === 'clear') {
+                        resetCalculator();
+                    } else if (action === 'plus-minus') {
+                        handlePlusMinus();
+                    } else if (action === 'percent') {
+                        handlePercentage();
+                    } else if (['add', 'subtract', 'multiply', 'divide', 'power', 'equals'].includes(action)) {
+                        handleOperator(action);
+                    } else {
+                        // Scientific functions
+                        handleScientificFunction(action);
+                    }
+                });
+            });
+            
+            // Mode switching
+            modeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    modeButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.style.color = '#8e8e93';
+                    });
+                    
+                    this.classList.add('active');
+                    this.style.color = '#007AFF';
+                    
+                    if (this.id === 'scientific-mode') {
+                        scientificCalculator.style.display = 'grid';
+                        alert('Switched to Scientific mode');
+                    } else {
+                        scientificCalculator.style.display = 'none';
+                        alert('Switched to Basic mode');
+                    }
+                });
+            });
+            
+            // History button
+            historyBtn.addEventListener('click', function() {
+                alert('Calculation History\n\n1. 123 + 456 = 579\n2. 15 × 3 = 45\n3. √25 = 5');
+            });
+            
+            // Keyboard support
+            document.addEventListener('keydown', function(event) {
+                const key = event.key;
+                
+                if (key >= '0' && key <= '9') {
+                    inputDigit(key);
+                } else if (key === '.') {
+                    inputDecimal();
+                } else if (key === '+') {
+                    handleOperator('add');
+                } else if (key === '-') {
+                    handleOperator('subtract');
+                } else if (key === '*') {
+                    handleOperator('multiply');
+                } else if (key === '/') {
+                    event.preventDefault();
+                    handleOperator('divide');
+                } else if (key === 'Enter' || key === '=') {
+                    handleOperator('equals');
+                } else if (key === 'Escape' || key === 'Delete') {
+                    resetCalculator();
+                } else if (key === '%') {
+                    handlePercentage();
+                }
+            });
+            
+            // Initialize display
+            updateDisplay();
+            
+            // Back button functionality
+            document.getElementById('app-back-btn').addEventListener('click', function() {
+                window.parent.postMessage({ action: 'goHome' }, '*');
+            });
+            
+            // Button hover effects
+            calcButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('orange')) {
+                        this.style.filter = 'brightness(1.2)';
+                    }
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.filter = '';
+                });
+            });
+        });
+    </script>
+    
+    <style>
+        .calculator-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .calc-btn {
+            height: 70px;
+            border: none;
+            font-size: 1.5rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .calc-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .calc-btn.gray {
+            background: #505050;
+            color: white;
+        }
+        
+        .calc-btn.dark {
+            background: #333;
+            color: white;
+        }
+        
+        .calc-btn.orange {
+            background: #FF9500;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .calc-btn.gray:hover {
+            background: #666;
+        }
+        
+        .calc-btn.dark:hover {
+            background: #444;
+        }
+        
+        .calc-btn.orange:hover {
+            background: #ffaa33;
+        }
+        
+        .mode-btn.active {
+            background: rgba(0, 122, 255, 0.2) !important;
+        }
+        
+        .mode-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .calculator-display {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 480px) {
+            .calc-btn {
+                height: 60px;
+                font-size: 1.3rem;
+            }
+            
+            .calc-btn.orange {
+                font-size: 1.5rem;
+            }
+            
+            #display {
+                font-size: 3rem !important;
+            }
+        }
+    </style>
+</body>
+</html>

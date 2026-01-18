@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="app-header" style="background: white;">
+        <button class="back-button" id="app-back-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h2 class="app-title">Health</h2>
+        <button class="app-header-btn">
+            <i class="fas fa-user-circle"></i>
+        </button>
+    </div>
+    
+    <div class="app-content">
+        <div class="health-container" style="padding: 20px;">
+            <!-- Summary -->
+            <div class="health-summary" style="background: linear-gradient(135deg, #FF3B30, #FF9500); border-radius: 15px; padding: 25px; color: white; margin-bottom: 25px;">
+                <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 10px;">DAILY SUMMARY</div>
+                <div style="font-size: 2rem; font-weight: 700; margin-bottom: 5px;">Nov 15, 2023</div>
+                <div style="font-size: 1rem; opacity: 0.9;">Your health data for today</div>
+            </div>
+            
+            <!-- Activity Rings -->
+            <div class="activity-rings" style="margin-bottom: 25px;">
+                <h3 style="color: #1d1d1f; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-chart-pie"></i> Activity Rings
+                </h3>
+                
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <div class="activity-ring" style="text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: conic-gradient(#FF3B30 0deg 240deg, #f2f2f7 240deg 360deg); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto;">
+                            <div style="width: 80px; height: 80px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #FF3B30;">
+                                480
+                            </div>
+                        </div>
+                        <div style="font-weight: 600; color: #1d1d1f;">Move</div>
+                        <div style="font-size: 0.9rem; color: #8e8e93;">600 Cal Goal</div>
+                    </div>
+                    
+                    <div class="activity-ring" style="text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: conic-gradient(#34C759 0deg 300deg, #f2f2f7 300deg 360deg); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto;">
+                            <div style="width: 80px; height: 80px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #34C759;">
+                                45
+                            </div>
+                        </div>
+                        <div style="font-weight: 600; color: #1d1d1f;">Exercise</div>
+                        <div style="font-size: 0.9rem; color: #8e8e93;">30 min Goal</div>
+                    </div>
+                    
+                    <div class="activity-ring" style="text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: conic-gradient(#007AFF 0deg 270deg, #f2f2f7 270deg 360deg); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto;">
+                            <div style="width: 80px; height: 80px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #007AFF;">
+                                9
+                            </div>
+                        </div>
+                        <div style="font-weight: 600; color: #1d1d1f;">Stand</div>
+                        <div style="font-size: 0.9rem; color: #8e8e93;">12 hr Goal</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Health Metrics -->
+            <div class="health-metrics" style="margin-bottom: 25px;">
+                <h3 style="color: #1d1d1f; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-heartbeat"></i> Health Metrics
+                </h3>
+                
+                <div class="metrics-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                    <div class="metric-card" style="background: #f2f2f7; border-radius: 12px; padding: 20px; text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 700; color: #FF3B30; margin-bottom: 10px;">72</div>
+                        <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">Heart Rate</div>
+                        <div style="font-size: 0.9rem; color: #8e8e93;">BPM • Resting</div>
+                    </div>
+                    
+                    <div class="metric-card" style="background: #f2f2f7; border-radius: 12px; padding: 20px; text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 700; color: #007AFF; margin-bottom: 10px;">7:24</div>
+                        <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">Sleep</div>
+                        <div style="font-size: 0.9rem; color: #8e8e93;">Hours • Last Night</div>
+                    </div>
+                    
+                    <div class="metric-card" style="background: #f2f2f7; border-radius: 12px; padding: 20px; text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 700; color: #34C759; margin-bottom: 10px;">8,542</div>
+                        <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">Steps</div>
+                        <div style="font-size: 0.9rem; color: #8e8e93;">Today • Goal: 10,000</div>
+                    </div>
+                    
+                    <div class="metric-card" style="background: #f2f2f7; border-radius: 12px; padding: 20px; text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 700; color: #FF9500; margin-bottom: 10px;">2,150</div>
+                        <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 5px;">Calories</div>
+                        <div style="font-size: 0.9rem; color: #8e8e93;">Active • Total Today</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trends -->
+            <div class="health-trends" style="margin-bottom: 25px;">
+                <h3 style="color: #1d1d1f; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-chart-line"></i> Trends
+                </h3>
+                
+                <div style="background: #f2f2f7; border-radius: 12px; padding: 20px;">
+                    <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 15px;">Weekly Activity</div>
+                    
+                    <div class="trend-chart" style="display: flex; align-items: flex-end; height: 100px; gap: 10px; margin-bottom: 15px;">
+                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 20px; height: 40px; background: #FF3B30; border-radius: 5px;"></div>
+                            <div style="font-size: 0.8rem; color: #8e8e93; margin-top: 5px;">Mon</div>
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 20px; height: 60px; background: #FF3B30; border-radius: 5px;"></div>
+                            <div style="font-size: 0.8rem; color: #8e8e93; margin-top: 5px;">Tue</div>
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 20px; height: 80px; background: #FF3B30; border-radius: 5px;"></div>
+                            <div style="font-size: 0.8rem; color: #8e8e93; margin-top: 5px;">Wed</div>
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 20px; height: 70px; background: #FF3B30; border-radius: 5px;"></div>
+                            <div style="font-size: 0.8rem; color: #8e8e93; margin-top: 5px;">Thu</div>
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 20px; height: 90px; background: #FF3B30; border-radius: 5px;"></div>
+                            <div style="font-size: 0.8rem; color: #8e8e93; margin-top: 5px;">Fri</div>
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 20px; height: 50px; background: #FF3B30; border-radius: 5px;"></div>
+                            <div style="font-size: 0.8rem; color: #8e8e93; margin-top: 5px;">Sat</div>
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 20px; height: 75px; background: #FF3B30; border-radius: 5px;"></div>
+                            <div style="font-size: 0.8rem; color: #8e8e93; margin-top: 5px;">Sun</div>
+                        </div>
+                    </div>
+                    
+                    <div style="font-size: 0.9rem; color: #8e8e93;">Daily Move Calories • This Week</div>
+                </div>
+            </div>
+            
+            <!-- Highlights -->
+            <div class="health-highlights">
+                <h3 style="color: #1d1d1f; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-award"></i> Highlights
+                </h3>
+                
+                <div class="highlight-items" style="display: flex; flex-direction: column; gap: 12px;">
+                    <div class="highlight-item" style="display: flex; align-items: center; padding: 15px; background: #f2f2f7; border-radius: 12px;">
+                        <div style="width: 40px; height: 40px; background: #FFD60A; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin-right: 15px;">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 3px;">Personal Best</div>
+                            <div style="font-size: 0.9rem; color: #8e8e93;">Most calories burned this month</div>
+                        </div>
+                        <div style="color: #FFD60A; font-weight: 600;">2,450 Cal</div>
+                    </div>
+                    
+                    <div class="highlight-item" style="display: flex; align-items: center; padding: 15px; background: #f2f2f7; border-radius: 12px;">
+                        <div style="width: 40px; height: 40px; background: #34C759; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin-right: 15px;">
+                            <i class="fas fa-walking"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 3px;">Step Streak</div>
+                            <div style="font-size: 0.9rem; color: #8e8e93;">15 days reaching step goal</div>
+                        </div>
+                        <div style="color: #34C759; font-weight: 600;">15 Days</div>
+                    </div>
+                    
+                    <div class="highlight-item" style="display: flex; align-items: center; padding: 15px; background: #f2f2f7; border-radius: 12px;">
+                        <div style="width: 40px; height: 40px; background: #007AFF; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin-right: 15px;">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 3px;">Consistent Sleep</div>
+                            <div style="font-size: 0.9rem; color: #8e8e93;">7+ hours for 10 straight nights</div>
+                        </div>
+                        <div style="color: #007AFF; font-weight: 600;">10 Nights</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const metricCards = document.querySelectorAll('.metric-card');
+            const highlightItems = document.querySelectorAll('.highlight-item');
+            const activityRings = document.querySelectorAll('.activity-ring');
+            const profileBtn = document.querySelector('.app-header-btn');
+            
+            // Metric cards click
+            metricCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const metricName = this.querySelector('div:nth-child(2)').textContent;
+                    const metricValue = this.querySelector('div:first-child').textContent;
+                    
+                    alert(`View ${metricName} details\nCurrent: ${metricValue}`);
+                });
+            });
+            
+            // Highlight items click
+            highlightItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const achievement = this.querySelector('div:nth-child(2) div:first-child').textContent;
+                    const description = this.querySelector('div:nth-child(2) div:last-child').textContent;
+                    
+                    alert(`Achievement: ${achievement}\n${description}`);
+                });
+            });
+            
+            // Activity rings click
+            activityRings.forEach(ring => {
+                ring.addEventListener('click', function() {
+                    const activityType = this.querySelector('div:nth-child(2)').textContent;
+                    const goal = this.querySelector('div:nth-child(3)').textContent;
+                    
+                    alert(`${activityType} Progress\n${goal}`);
+                });
+            });
+            
+            // Profile button
+            profileBtn.addEventListener('click', function() {
+                alert('Health Profile\nView personal health details and settings');
+            });
+            
+            // Simulate health data updates
+            function updateHealthData() {
+                // Update heart rate
+                const heartRate = Math.floor(Math.random() * 20) + 65; // 65-85 BPM
+                document.querySelector('.metric-card:nth-child(1) div:first-child').textContent = heartRate;
+                
+                // Update steps
+                const steps = Math.floor(Math.random() * 3000) + 7000; // 7000-10000 steps
+                document.querySelector('.metric-card:nth-child(3) div:first-child').textContent = 
+                    steps.toLocaleString();
+                
+                // Update calories
+                const calories = Math.floor(Math.random() * 500) + 2000; // 2000-2500 calories
+                document.querySelector('.metric-card:nth-child(4) div:first-child').textContent = 
+                    calories.toLocaleString();
+                
+                // Update move ring
+                const moveCalories = Math.floor(Math.random() * 150) + 450; // 450-600 calories
+                const movePercentage = (moveCalories / 600) * 360;
+                const moveRing = document.querySelector('.activity-ring:nth-child(1) div:first-child');
+                moveRing.style.background = `conic-gradient(#FF3B30 0deg ${movePercentage}deg, #f2f2f7 ${movePercentage}deg 360deg)`;
+                moveRing.querySelector('div').textContent = moveCalories;
+                
+                // Update exercise ring
+                const exerciseMinutes = Math.floor(Math.random() * 20) + 40; // 40-60 minutes
+                const exercisePercentage = (exerciseMinutes / 30) * 360;
+                const exerciseRing = document.querySelector('.activity-ring:nth-child(2) div:first-child');
+                exerciseRing.style.background = `conic-gradient(#34C759 0deg ${Math.min(exercisePercentage, 360)}deg, #f2f2f7 ${Math.min(exercisePercentage, 360)}deg 360deg)`;
+                exerciseRing.querySelector('div').textContent = exerciseMinutes;
+                
+                // Update stand ring
+                const standHours = Math.floor(Math.random() * 4) + 9; // 9-13 hours
+                const standPercentage = (standHours / 12) * 360;
+                const standRing = document.querySelector('.activity-ring:nth-child(3) div:first-child');
+                standRing.style.background = `conic-gradient(#007AFF 0deg ${standPercentage}deg, #f2f2f7 ${standPercentage}deg 360deg)`;
+                standRing.querySelector('div').textContent = standHours;
+            }
+            
+            // Update health data every 10 seconds
+            setInterval(updateHealthData, 10000);
+            
+            // Animate trend chart
+            function animateTrendChart() {
+                const bars = document.querySelectorAll('.trend-chart > div');
+                bars.forEach(bar => {
+                    const currentHeight = parseInt(bar.querySelector('div:first-child').style.height);
+                    const newHeight = Math.floor(Math.random() * 40) + 30; // 30-70px
+                    bar.querySelector('div:first-child').style.height = `${newHeight}px`;
+                    bar.querySelector('div:first-child').style.transition = 'height 0.5s ease';
+                });
+            }
+            
+            // Animate chart every 5 seconds
+            setInterval(animateTrendChart, 5000);
+            
+            // Back button functionality
+            document.getElementById('app-back-btn').addEventListener('click', function() {
+                window.parent.postMessage({ action: 'goHome' }, '*');
+            });
+            
+            // Add hover effects
+            metricCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+                    this.style.transition = 'all 0.2s';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                });
+            });
+            
+            // Initialize with random data
+            updateHealthData();
+            animateTrendChart();
+        });
+    </script>
+</body>
+</html>

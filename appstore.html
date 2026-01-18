@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Store - iPhone Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="app-screen">
+    <div class="app-header" style="background: white; border-bottom: 1px solid #e5e5ea;">
+        <button class="back-button" id="app-back-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="search-container" style="flex: 1; position: relative; margin: 0 15px;">
+            <i class="fas fa-search" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #8e8e93;"></i>
+            <input type="text" placeholder="Games, Apps, Stories, and More" style="width: 100%; padding: 12px 15px 12px 45px; border: 1px solid #e5e5ea; border-radius: 10px; background: #f2f2f7; font-size: 1rem;">
+        </div>
+        
+        <button class="app-header-btn">
+            <i class="fas fa-user-circle"></i>
+        </button>
+    </div>
+    
+    <div class="app-content" style="background: white;">
+        <div class="appstore-tabs" style="display: flex; border-bottom: 1px solid #e5e5ea;">
+            <button class="appstore-tab active" style="flex: 1; padding: 15px; background: none; border: none; color: #007AFF; font-weight: 500; position: relative;">
+                Today
+            </button>
+            <button class="appstore-tab" style="flex: 1; padding: 15px; background: none; border: none; color: #8e8e93; font-weight: 500;">
+                Games
+            </button>
+            <button class="appstore-tab" style="flex: 1; padding: 15px; background: none; border: none; color: #8e8e93; font-weight: 500;">
+                Apps
+            </button>
+            <button class="appstore-tab" style="flex: 1; padding: 15px; background: none; border: none; color: #8e8e93; font-weight: 500;">
+                Arcade
+            </button>
+            <button class="appstore-tab" style="flex: 1; padding: 15px; background: none; border: none; color: #8e8e93; font-weight: 500;">
+                Search
+            </button>
+        </div>
+        
+        <div class="appstore-content" style="padding: 20px; overflow-y: auto; height: calc(100% - 120px);">
+            <!-- Today Tab -->
+            <div class="today-content">
+                <div class="featured-story" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; padding: 30px 25px; color: white; margin-bottom: 25px;">
+                    <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 10px;">FEATURED STORY</div>
+                    <div style="font-size: 1.8rem; font-weight: 700; margin-bottom: 15px;">App of the Day</div>
+                    <div style="font-size: 1.1rem; margin-bottom: 20px;">Discover amazing apps selected by our editors</div>
+                    <button style="background: white; color: #667eea; border: none; padding: 12px 25px; border-radius: 25px; font-weight: 600; cursor: pointer;">
+                        Learn More
+                    </button>
+                </div>
+                
+                <div class="quick-links" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px;">
+                    <div class="quick-link" style="background: #f2f2f7; border-radius: 15px; padding: 20px; cursor: pointer;">
+                        <div style="font-size: 1.3rem; font-weight: 600; color: #1d1d1f; margin-bottom: 10px;">Must-Have Apps</div>
+                        <div style="color: #8e8e93;">Essential apps for everyday use</div>
+                    </div>
+                    
+                    <div class="quick-link" style="background: #f2f2f7; border-radius: 15px; padding: 20px; cursor: pointer;">
+                        <div style="font-size: 1.3rem; font-weight: 600; color: #1d1d1f; margin-bottom: 10px;">New Games</div>
+                        <div style="color: #8e8e93;">Fresh releases this week</div>
+                    </div>
+                </div>
+                
+                <div class="app-listings" style="margin-bottom: 25px;">
+                    <h3 style="color: #1d1d1f; margin-bottom: 15px;">Recommended For You</h3>
+                    
+                    <div class="app-list">
+                        <div class="app-item" style="display: flex; align-items: center; padding: 15px; border-radius: 12px; cursor: pointer; transition: background 0.2s; margin-bottom: 10px;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #FF9500, #FF5E3A); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-right: 15px;">
+                                <i class="fas fa-cloud-sun"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 3px;">Weather+</div>
+                                <div style="font-size: 0.9rem; color: #8e8e93;">Advanced weather forecasts</div>
+                                <div style="display: flex; align-items: center; gap: 5px; margin-top: 5px;">
+                                    <span style="color: #FF9500;">★★★★★</span>
+                                    <span style="font-size: 0.8rem; color: #8e8e93;">(4.8 • 12K)</span>
+                                </div>
+                            </div>
+                            <button style="background: #007AFF; color: white; border: none; padding: 8px 16px; border-radius: 15px; font-weight: 500; cursor: pointer;">
+                                GET
+                            </button>
+                        </div>
+                        
+                        <div class="app-item" style="display: flex; align-items: center; padding: 15px; border-radius: 12px; cursor: pointer; transition: background 0.2s; margin-bottom: 10px;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #34C759, #32ADE6); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-right: 15px;">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 3px;">FitTracker Pro</div>
+                                <div style="font-size: 0.9rem; color: #8e8e93;">Workout and fitness tracker</div>
+                                <div style="display: flex; align-items: center; gap: 5px; margin-top: 5px;">
+                                    <span style="color: #FF9500;">★★★★☆</span>
+                                    <span style="font-size: 0.8rem; color: #8e8e93;">(4.5 • 8.2K)</span>
+                                </div>
+                            </div>
+                            <button style="background: #007AFF; color: white; border: none; padding: 8px 16px; border-radius: 15px; font-weight: 500; cursor: pointer;">
+                                GET
+                            </button>
+                        </div>
+                        
+                        <div class="app-item" style="display: flex; align-items: center; padding: 15px; border-radius: 12px; cursor: pointer; transition: background 0.2s;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #AF52DE, #5856D6); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-right: 15px;">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600; color: #1d1d1f; margin-bottom: 3px;">Mindful Moments</div>
+                                <div style="font-size: 0.9rem; color: #8e8e93;">Meditation and mindfulness</div>
+                                <div style="display: flex; align-items: center; gap: 5px; margin-top: 5px;">
+                                    <span style="color: #FF9500;">★★★★★</span>
+                                    <span style="font-size: 0.8rem; color: #8e8e93;">(4.9 • 15K)</span>
+                                </div>
+                            </div>
+                            <button style="background: #007AFF; color: white; border: none; padding: 8px 16px; border-radius: 15px; font-weight: 500; cursor: pointer;">
+                                GET
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="editor-picks" style="margin-bottom: 25px;">
+                    <h3 style="color: #1d1d1f; margin-bottom: 15px;">Editor's Picks</h3>
+                    
+                    <div style="display: flex; overflow-x: auto; gap: 15px; padding-bottom: 10px;">
+                        <div class="editor-pick" style="min-width: 280px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 15px; padding: 25px; color: white;">
+                            <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 10px;">CREATIVITY</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px;">Design Master Pro</div>
+                            <div style="font-size: 1rem; margin-bottom: 20px;">Create stunning graphics and designs</div>
+                        </div>
+                        
+                        <div class="editor-pick" style="min-width: 280px; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); border-radius: 15px; padding: 25px; color: white;">
+                            <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 10px;">PRODUCTIVITY</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px;">TaskFlow</div>
+                            <div style="font-size: 1rem; margin-bottom: 20px;">Organize your projects and tasks</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Navigation -->
+            <div class="appstore-bottom-nav" style="position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #e5e5ea; display: flex; justify-content: space-around; padding: 10px 0;">
+                <button class="bottom-nav-btn active" style="background: none; border: none; color: #007AFF; display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer;">
+                    <i class="fas fa-star"></i>
+                    <span style="font-size: 0.7rem;">Today</span>
+                </button>
+                <button class="bottom-nav-btn" style="background: none; border: none; color: #8e8e93; display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer;">
+                    <i class="fas fa-gamepad"></i>
+                    <span style="font-size: 0.7rem;">Games</span>
+                </button>
+                <button class="bottom-nav-btn" style="background: none; border: none; color: #8e8e93; display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer;">
+                    <i class="fas fa-th-large"></i>
+                    <span style="font-size: 0.7rem;">Apps</span>
+                </button>
+                <button class="bottom-nav-btn" style="background: none; border: none; color: #8e8e93; display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer;">
+                    <i class="fas fa-joystick"></i>
+                    <span style="font-size: 0.7rem;">Arcade</span>
+                </button>
+                <button class="bottom-nav-btn" style="background: none; border: none; color: #8e8e93; display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer;">
+                    <i class="fas fa-search"></i>
+                    <span style="font-size: 0.7rem;">Search</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const appstoreTabs = document.querySelectorAll('.appstore-tab');
+            const bottomNavBtns = document.querySelectorAll('.bottom-nav-btn');
+            const appItems = document.querySelectorAll('.app-item');
+            const quickLinks = document.querySelectorAll('.quick-link');
+            const editorPicks = document.querySelectorAll('.editor-pick');
+            const featuredStoryBtn = document.querySelector('.featured-story button');
+            const searchInput = document.querySelector('.search-container input');
+            const profileBtn = document.querySelector('.app-header-btn');
+            
+            // Tab switching
+            function switchTab(tabName) {
+                // Update top tabs
+                appstoreTabs.forEach(tab => {
+                    tab.classList.remove('active');
+                    tab.style.color = '#8e8e93';
+                });
+                
+                // Update bottom navigation
+                bottomNavBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.style.color = '#8e8e93';
+                });
+                
+                // Find and activate selected tab
+                const selectedTab = Array.from(appstoreTabs).find(tab => tab.textContent.trim() === tabName);
+                const selectedBottomBtn = Array.from(bottomNavBtns).find(btn => btn.querySelector('span').textContent === tabName);
+                
+                if (selectedTab) {
+                    selectedTab.classList.add('active');
+                    selectedTab.style.color = '#007AFF';
+                }
+                
+                if (selectedBottomBtn) {
+                    selectedBottomBtn.classList.add('active');
+                    selectedBottomBtn.style.color = '#007AFF';
+                }
+                
+                // Show appropriate content (simplified)
+                alert(`Switch to ${tabName} tab`);
+            }
+            
+            // Top tabs click
+            appstoreTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    switchTab(this.textContent.trim());
+                });
+            });
+            
+            // Bottom navigation click
+            bottomNavBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabName = this.querySelector('span').textContent;
+                    switchTab(tabName);
+                });
+            });
+            
+            // App items click
+            appItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const appName = this.querySelector('div:nth-child(2) div:first-child').textContent;
+                    const button = this.querySelector('button');
+                    
+                    if (button.textContent === 'GET') {
+                        button.textContent = 'OPEN';
+                        button.style.background = '#e5e5ea';
+                        button.style.color = '#1d1d1f';
+                        alert(`Downloading ${appName}...`);
+                        
+                        // Simulate download completion
+                        setTimeout(() => {
+                            alert(`${appName} has been downloaded and installed!`);
+                        }, 1500);
+                    } else {
+                        alert(`Opening ${appName}`);
+                    }
+                });
+                
+                // Hover effect
+                item.addEventListener('mouseenter', function() {
+                    this.style.background = '#f2f2f7';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.background = '';
+                });
+            });
+            
+            // Quick links
+            quickLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const linkTitle = this.querySelector('div:first-child').textContent;
+                    alert(`Browse ${linkTitle}`);
+                });
+            });
+            
+            // Editor picks
+            editorPicks.forEach(pick => {
+                pick.addEventListener('click', function() {
+                    const category = this.querySelector('div:first-child').textContent;
+                    const appName = this.querySelector('div:nth-child(2)').textContent;
+                    alert(`View ${category}: ${appName}`);
+                });
+            });
+            
+            // Featured story
+            featuredStoryBtn.addEventListener('click', function() {
+                alert('Read the full App of the Day story');
+            });
+            
+            // Search
+            searchInput.addEventListener('focus', function() {
+                alert('Search for apps, games, and more');
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    alert(`Searching for: ${this.value}`);
+                    this.value = '';
+                }
+            });
+            
+            // Profile button
+            profileBtn.addEventListener('click', function() {
+                alert('View your App Store account');
+            });
+            
+            // Simulate app ratings animation
+            function animateRatings() {
+                appItems.forEach(item => {
+                    const ratingSpan = item.querySelector('span:first-child');
+                    const currentRating = ratingSpan.textContent;
+                    
+                    // Randomly change some ratings slightly
+                    if (Math.random() > 0.7) {
+                        const ratings = ['★★★★★', '★★★★☆', '★★★☆☆'];
+                        const newRating = ratings[Math.floor(Math.random() * ratings.length)];
+                        ratingSpan.textContent = newRating;
+                        
+                        // Revert after 3 seconds
+                        setTimeout(() => {
+                            ratingSpan.textContent = currentRating;
+                        }, 3000);
+                    }
+                });
+            }
+            
+            // Animate ratings every 5 seconds
+            setInterval(animateRatings, 5000);
+            
+            // Back button functionality
+            document.getElementById('app-back-btn').addEventListener('click', function() {
+                window.parent.postMessage({ action: 'goHome' }, '*');
+            });
+        });
+    </script>
+    
+    <style>
+        .appstore-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background: #007AFF;
+            border-radius: 1.5px;
+        }
+        
+        .bottom-nav-btn.active span {
+            color: #007AFF;
+        }
+        
+        .app-item button {
+            transition: all 0.2s;
+        }
+        
+        .app-item button:hover {
+            transform: scale(1.05);
+        }
+        
+        .quick-link:hover, .editor-pick:hover {
+            transform: translateY(-2px);
+            transition: transform 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+    </style>
+</body>
+</html>
